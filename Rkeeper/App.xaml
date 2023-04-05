@@ -1,0 +1,31 @@
+﻿<Application x:Class="Rkeeper.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Rkeeper"
+             StartupUri="View/OpeningLoadingView/OpeningWindow.xaml">
+
+    <Application.Resources>
+        
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Resources/ApplicationResources.xaml"/>
+                
+                <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/LoginRegisterStyles/TxtBoxStyle.xaml"/>
+                
+                <ResourceDictionary Source="Styles/LoginRegisterStyles/PswdBoxStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/LoginRegisterStyles/LoginRegisterButtonStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/LoginRegisterStyles/AdditionalBtnStyleLoginRegister.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+        
+        </ResourceDictionary>
+        
+    </Application.Resources>
+
+</Application>

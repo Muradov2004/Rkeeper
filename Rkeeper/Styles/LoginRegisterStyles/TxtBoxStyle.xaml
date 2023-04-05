@@ -1,0 +1,183 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="txtStyle" TargetType="TextBox">
+
+        <Setter Property="Margin" Value="20"/>
+
+        <Setter Property="FontSize" Value="20"/>
+
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        <Setter Property="Effect">
+
+            <Setter.Value>
+
+                <DropShadowEffect Color="Transparent" ShadowDepth="5" BlurRadius="5" Opacity="0.8"/>
+
+            </Setter.Value>
+
+        </Setter>
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate>
+
+                    <Border Name="Border" Background="White" BorderBrush="#484bf2" BorderThickness="1" CornerRadius="3">
+                        
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" />
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+
+                            <Setter Property="BorderBrush" TargetName="Border" Value="LightSalmon"/>
+
+                            <Setter Property="Effect">
+
+                                <Setter.Value>
+
+                                    <DropShadowEffect Color="LightSalmon" ShadowDepth="3" BlurRadius="3" Opacity="0.8"/>
+
+                                </Setter.Value>
+
+                            </Setter>
+
+                            <Trigger.EnterActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="10" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="10" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="0" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="0" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="False">
+
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#484bf2"/>
+
+                            <Setter Property="Effect">
+
+                                <Setter.Value>
+
+                                    <DropShadowEffect Color="LightSalmon" ShadowDepth="5" BlurRadius="5" Opacity="0.8"/>
+
+                                </Setter.Value>
+
+                            </Setter>
+
+                            <Trigger.EnterActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="0" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="0" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="10" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="10" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+
+
+                        <Trigger Property="IsFocused" Value="True">
+
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#484bf2"/>
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#484bf2" ShadowDepth="10" BlurRadius="10" Opacity="0.8"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Trigger.EnterActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="5" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="5" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="0" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).ShadowDepth" To="0" Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

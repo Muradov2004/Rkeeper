@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\LoginRegisterImages\LoginImage.png" />
+    <None Remove="Assets\LoginRegisterImages\RegisterImage.png" />
+    <None Remove="Assets\rkeeper.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\IconImage\rkeeper.ico" />
+    <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
+    <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />
+  </ItemGroup>
+
+</Project>

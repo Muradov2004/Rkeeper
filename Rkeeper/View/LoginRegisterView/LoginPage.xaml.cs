@@ -24,5 +24,20 @@ namespace Rkeeper.View.LoginRegisterView
         {
             InitializeComponent();
         }
+
+        private void Password_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+            TextBlock placeHolderTextBlock = (TextBlock)Password.Template.FindName("PlaceHolder", Password);
+            if (string.IsNullOrEmpty(Password.Password))
+            {
+                placeHolderTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                placeHolderTextBlock.Visibility = Visibility.Collapsed;
+            }
+
+        }
     }
 }

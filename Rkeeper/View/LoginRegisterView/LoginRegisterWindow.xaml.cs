@@ -23,7 +23,7 @@ namespace Rkeeper.View.LoginRegisterView
         {
             InitializeComponent();
 
-            MainContent.NavigationService.Navigate(new LoginPage());
+            MainContent.NavigationService.Navigate(new RegisterPage());
         }
     }
 }

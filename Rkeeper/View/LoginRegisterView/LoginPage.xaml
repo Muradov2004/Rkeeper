@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Rkeeper.View.LoginRegisterView"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="LoginPage">
+      Title="LoginPage"
+      Style="{StaticResource Page_Style}">
 
     <Grid>
 

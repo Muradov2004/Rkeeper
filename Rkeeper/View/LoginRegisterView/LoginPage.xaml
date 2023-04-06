@@ -59,7 +59,7 @@
 
             </Grid>
 
-            <Button Grid.Row="4" Background="LightSalmon" Style="{StaticResource LoginRegisterBtnStyle}" Content="Login"/>
+            <Button Name="LoginBtn" Grid.Row="4" Background="LightSalmon" Style="{StaticResource LoginRegisterBtnStyle}" Content="Login"/>
         </Grid>
 
     </Grid>

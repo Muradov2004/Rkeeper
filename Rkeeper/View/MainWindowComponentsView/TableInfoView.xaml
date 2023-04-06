@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Rkeeper.View.MainWindowComponentsView.TableInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
+             mc:Ignorable="d" 
+             Background="LightGray"
+             d:DesignHeight="500" d:DesignWidth="330">
+    <StackPanel>
+        <Grid Margin="20,40,20,0" Height="380">
+            
+        </Grid>
+        <Button Margin="20,10" FontSize="25" Padding="10" Content="Hesab"/>
+    </StackPanel>
+</UserControl>

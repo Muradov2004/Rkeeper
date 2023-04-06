@@ -4,11 +4,13 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Rkeeper.View"
+        xmlns:ucView="clr-namespace:Rkeeper.View.MainWindowComponentsView"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
-    <Grid>
-
-    </Grid>
+    <DockPanel>
+        <ucView:TableInfoView DockPanel.Dock="Left"/>
+        <ucView:TableView DockPanel.Dock="Right"/>
+    </DockPanel>
 </Window>
 

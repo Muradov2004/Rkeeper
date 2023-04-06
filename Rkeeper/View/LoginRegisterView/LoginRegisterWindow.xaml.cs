@@ -25,9 +25,10 @@ namespace Rkeeper.View.LoginRegisterView
         public LoginRegisterWindow()
         {
             InitializeComponent();
-            MainContent.NavigationService.Navigate(registerPage);
+            MainContent.NavigationService.Navigate(loginPage);
             loginPage.AdditionalRegisterBtn.Click += RegisterPageBtnClick;
             registerPage.AdditionalLoginBtn.Click += LoginPageBtnClick;
+            loginPage.LoginBtn.Click += Button_Click;
         }
 
         private void LoginPageBtnClick(object sender, RoutedEventArgs e)
@@ -40,6 +41,14 @@ namespace Rkeeper.View.LoginRegisterView
             MainContent.NavigationService.Navigate(registerPage);
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
+            {
+                MainView mainView = new MainView();
+                mainView.Show();
+                Close();
+            }
+        }
     }
 }

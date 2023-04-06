@@ -12,6 +12,8 @@
 
         <Setter Property="Margin" Value="2,7"/>
 
+        <Setter Property="Cursor" Value="Hand"/>
+
         <Setter Property="Template">
             
             <Setter.Value>

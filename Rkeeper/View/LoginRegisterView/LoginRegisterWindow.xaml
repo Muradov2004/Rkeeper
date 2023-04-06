@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rkeeper.View.LoginRegisterView"
         mc:Ignorable="d"
+		ResizeMode="CanMinimize"
     	WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
     <Grid>

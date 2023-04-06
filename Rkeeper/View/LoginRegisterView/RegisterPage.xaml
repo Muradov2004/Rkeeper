@@ -50,7 +50,7 @@
 
                 <TextBlock Grid.Column="0" Text="Have an account?" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
 
-                <Button Grid.Column="1" Style="{StaticResource AdditionalBtnStyle}">
+                <Button Name="AdditionalLoginBtn" Grid.Column="1" Style="{StaticResource AdditionalBtnStyle}">
 
                     <TextBlock Text="Login" TextDecorations="Underline"/>
 

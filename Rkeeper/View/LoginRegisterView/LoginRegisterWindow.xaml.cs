@@ -19,11 +19,27 @@ namespace Rkeeper.View.LoginRegisterView
     /// </summary>
     public partial class LoginRegisterWindow : Window
     {
+        private RegisterPage registerPage = new();
+        private LoginPage loginPage = new();
+
         public LoginRegisterWindow()
         {
             InitializeComponent();
-
-            MainContent.NavigationService.Navigate(new RegisterPage());
+            MainContent.NavigationService.Navigate(registerPage);
+            loginPage.AdditionalRegisterBtn.Click += RegisterPageBtnClick;
+            registerPage.AdditionalLoginBtn.Click += LoginPageBtnClick;
         }
+
+        private void LoginPageBtnClick(object sender, RoutedEventArgs e)
+        {
+            MainContent.NavigationService.Navigate(loginPage);
+        }
+
+        private void RegisterPageBtnClick(object sender, RoutedEventArgs e)
+        {
+            MainContent.NavigationService.Navigate(registerPage);
+        }
+
+
     }
 }

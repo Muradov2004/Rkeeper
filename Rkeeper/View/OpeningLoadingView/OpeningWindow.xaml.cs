@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Rkeeper.View.LoginRegisterView;
+using System.Windows;
 
 namespace Rkeeper.View.OpeningLoadingView
 {

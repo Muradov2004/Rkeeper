@@ -51,7 +51,7 @@
 
                 <TextBlock Grid.Column="0" Text="You are not registered yet?" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
 
-                <Button Grid.Column="1" Style="{StaticResource AdditionalBtnStyle}">
+                <Button Name="AdditionalRegisterBtn" Grid.Column="1" Style="{StaticResource AdditionalBtnStyle}">
 
                     <TextBlock Text="Register" TextDecorations="Underline"/>
 

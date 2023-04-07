@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Assets\LoginRegisterImages\LoginImage.png" />
     <None Remove="Assets\LoginRegisterImages\RegisterImage.png" />
+    <None Remove="Assets\MenuImages\DefaultMenuFoodImage.jpg" />
     <None Remove="Assets\rkeeper.ico" />
   </ItemGroup>
 
@@ -17,6 +18,7 @@
     <Resource Include="Assets\IconImage\rkeeper.ico" />
     <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
     <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />
+    <Resource Include="Assets\MenuImages\DefaultMenuFoodImage.jpg" />
   </ItemGroup>
 
 </Project>

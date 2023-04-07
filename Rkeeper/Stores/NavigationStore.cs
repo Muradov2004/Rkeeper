@@ -6,17 +6,17 @@ namespace Rkeeper.Stores;
 public class NavigationStore
 {
 
-    public event Action? CurrentViewModelChanged;
+    public event Action? CurrentVMChanged;
 
-    private BaseVM? _currentViewModel;
+    private BaseVM? _currentVM;
 
-    public BaseVM? CurrentViewModel
+    public BaseVM? CurrentVM
     {
-        get { return _currentViewModel; }
+        get { return _currentVM; }
         set
         {
-            _currentViewModel = value;
-            CurrentViewModelChanged?.Invoke();
+            _currentVM = value;
+            CurrentVMChanged?.Invoke();
         }
     }
 

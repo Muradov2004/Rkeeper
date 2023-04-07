@@ -7,10 +7,15 @@
              mc:Ignorable="d" 
              Background="LightGray"
              d:DesignHeight="500" d:DesignWidth="330">
-    <StackPanel>
-        <Grid Margin="20,40,20,0" Height="380">
-            
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="18,15,18,0" Background="WhiteSmoke">
+
         </Grid>
-        <Button Margin="20,10" FontSize="25" Padding="10" Content="Hesab"/>
-    </StackPanel>
+        <Button Grid.Row="1" Margin="20,10" FontSize="28" Height="50" Content="B i l l" FontWeight="Bold"/>
+
+    </Grid>
 </UserControl>

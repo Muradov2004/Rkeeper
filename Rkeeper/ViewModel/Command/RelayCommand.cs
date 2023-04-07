@@ -5,16 +5,14 @@ namespace Rkeeper.ViewModel.Command;
 
 public class RelayCommand : ICommand
 {
+
+    private Action<object?> _execute;
+    private Predicate<object?>? _canExecute;
     public event EventHandler? CanExecuteChanged
     {
         add { CommandManager.RequerySuggested += value; }
         remove { CommandManager.RequerySuggested -= value; }
     }
-
-
-    private Action<object?> _execute;
-    private Predicate<object?>? _canExecute;
-
 
     public RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
     {

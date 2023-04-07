@@ -16,7 +16,7 @@
         </Style>
     </UserControl.Resources>
     <ScrollViewer>
-        <WrapPanel>
+        <WrapPanel HorizontalAlignment="Center">
             <Button Content="Tabel1"/>
             <Button Content="Tabel2"/>
             <Button Content="Tabel3"/>

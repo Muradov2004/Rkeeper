@@ -8,9 +8,13 @@
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
-    <DockPanel>
-        <ucView:TableInfoView DockPanel.Dock="Left"/>
-        <ucView:TableView DockPanel.Dock="Right"/>
-    </DockPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ucView:TableInfoView Grid.Column="0"/>
+        <ucView:TableView Grid.Column="1"/>
+    </Grid>
 </Window>
 

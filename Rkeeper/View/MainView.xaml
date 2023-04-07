@@ -4,17 +4,25 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Rkeeper.View"
-        xmlns:ucView="clr-namespace:Rkeeper.View.MainWindowComponentsView"
+        xmlns:viewModel="clr-namespace:Rkeeper.ViewModel"
+        xmlns:view="clr-namespace:Rkeeper.View.MainWindowComponentsView"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <ucView:TableInfoView Grid.Column="0"/>
-        <ucView:TableView Grid.Column="1"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModel:TableVM}">
+                <view:TableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OrderFoodVM}">
+                <view:OrderFoodView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:BillVM}">
+                <view:BillView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentVM}"/>
     </Grid>
 </Window>
 

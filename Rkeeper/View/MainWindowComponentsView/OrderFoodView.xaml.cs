@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Rkeeper.View.MainWindowComponentsView
 {
     /// <summary>
-    /// Interaction logic for TableInfoView.xaml
+    /// Interaction logic for OrderFoodView.xaml
     /// </summary>
-    public partial class TableInfoView : UserControl
+    public partial class OrderFoodView : UserControl
     {
-        public TableInfoView()
+        public OrderFoodView()
         {
             InitializeComponent();
         }

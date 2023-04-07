@@ -6,23 +6,43 @@
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
              mc:Ignorable="d" 
              Margin="20,10,0,0"
-             d:DesignHeight="400" d:DesignWidth="510">
-    <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="150"/>
-            <Setter Property="Margin" Value="20,10"/>
-            <Setter Property="FontSize" Value="25"/>
-        </Style>
-    </UserControl.Resources>
-    <ScrollViewer>
-        <WrapPanel HorizontalAlignment="Center">
-            <Button Content="Tabel1"/>
-            <Button Content="Tabel2"/>
-            <Button Content="Tabel3"/>
-            <Button Content="Tabel4"/>
-            <Button Content="Tabel5"/>
-            <Button Content="Tabel6"/>
-        </WrapPanel>
-    </ScrollViewer>
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition  Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Margin="18,15,18,0" Background="WhiteSmoke">
+
+            </Grid>
+            <Button Grid.Row="1" Margin="20,10" FontSize="28" Height="50" Content="B i l l" FontWeight="Bold"/>
+
+        </Grid>
+
+        <ScrollViewer Grid.Column="1">
+            <WrapPanel HorizontalAlignment="Center">
+                <WrapPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Width" Value="200"/>
+                        <Setter Property="Height" Value="150"/>
+                        <Setter Property="Margin" Value="20,10"/>
+                        <Setter Property="FontSize" Value="25"/>
+                    </Style>
+                </WrapPanel.Resources>
+                <Button Content="Tabel1"/>
+                <Button Content="Tabel2"/>
+                <Button Content="Tabel3"/>
+                <Button Content="Tabel4"/>
+                <Button Content="Tabel5"/>
+                <Button Content="Tabel6"/>
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

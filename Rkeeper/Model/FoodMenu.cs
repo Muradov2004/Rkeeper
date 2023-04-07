@@ -21,4 +21,5 @@ class FoodMenu
             new("Food3",1.0)
         };
     }
+
 }

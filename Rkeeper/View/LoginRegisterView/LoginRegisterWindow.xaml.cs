@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Rkeeper.Stores;
+using Rkeeper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +47,11 @@ namespace Rkeeper.View.LoginRegisterView
         {
             if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
             {
-                MainView mainView = new MainView();
+                NavigationStore _navigationStore = new NavigationStore();
+                MainView mainView = new MainView()
+                {
+                    DataContext = new MainVM(_navigationStore)
+                };
                 mainView.Show();
                 Close();
             }

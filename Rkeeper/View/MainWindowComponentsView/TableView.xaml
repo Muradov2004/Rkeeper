@@ -20,9 +20,26 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Margin="18,15,18,0" Background="WhiteSmoke">
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Name="OrderGrid">
+                    <ListView x:Name="lsit" Background="#d6efeb" ItemsSource="{Binding }" >
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="auto"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Surname}" Width="auto"/>
+                                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Surname}" Width="auto"/>
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+                <Button Grid.Row="1" Margin="15,8" FontWeight="Bold" FontSize="17" Content="A d d  O r d e r" Command="{Binding AddOrderCommand}"/>
             </Grid>
-            <Button Grid.Row="1" Margin="20,10" FontSize="28" Height="50" Content="B i l l" FontWeight="Bold"/>
+            <Button Grid.Row="1" Margin="20,10" FontSize="28" Height="50" Content="B i l l" FontWeight="Bold" Command="{Binding BillCommand}"/>
 
         </Grid>
 
@@ -36,12 +53,12 @@
                         <Setter Property="FontSize" Value="25"/>
                     </Style>
                 </WrapPanel.Resources>
-                <Button Content="Tabel1"/>
-                <Button Content="Tabel2"/>
-                <Button Content="Tabel3"/>
-                <Button Content="Tabel4"/>
-                <Button Content="Tabel5"/>
-                <Button Content="Tabel6"/>
+                <Button Content="Tabel1" Command="{Binding TableCommand}"/>
+                <Button Content="Tabel2" Command="{Binding TableCommand}"/>
+                <Button Content="Tabel3" Command="{Binding TableCommand}"/>
+                <Button Content="Tabel4" Command="{Binding TableCommand}"/>
+                <Button Content="Tabel5" Command="{Binding TableCommand}"/>
+                <Button Content="Tabel6" Command="{Binding TableCommand}"/>
             </WrapPanel>
         </ScrollViewer>
     </Grid>

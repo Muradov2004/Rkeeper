@@ -14,7 +14,7 @@ enum TableShape
     Square
 }
 
-class Tabel
+class Table
 {
     public string? Name { get; set; }
     public int NumberOfChairs { get; set; }

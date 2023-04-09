@@ -10,14 +10,17 @@ using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using Rkeeper.Model;
+using System.Windows.Controls;
 
 namespace Rkeeper.ViewModel;
 
 class TableVM : BaseVM
 {
-    private bool IsGridActive = false;
+    private bool IsListActive = false;
 
-    private ObservableCollection<Food> OrderedFood = new();
+    public Dictionary<string, ObservableCollection<Food>> TableOrderedFood { get; set; }
+
+    public ObservableCollection<Food> OrderedFood { get; set; } = new();
 
     private readonly NavigationStore _navigation;
 
@@ -28,12 +31,21 @@ class TableVM : BaseVM
     public TableVM(NavigationStore navigation)
     {
         _navigation = navigation;
+        TableOrderedFood = new()
+        {
+            { "Table1" , new() { new("Pizza", 10) { Count = 1 } } },
+            { "Table2" , new() { new("Pasta", 12) { Count = 1 } } },
+            { "Table3" , new() { new("Steak", 20) { Count = 1 } } },
+            { "Table4" , new() { new("Steak", 12) { Count = 1 } } },
+            { "Table5" , new() { new("Steak", 11) { Count = 1 } } },
+            { "Table6" , new() { new("Steak", 5) { Count = 1 } } },
+        };
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
         AddOrderCommand = new RelayCommand(ExecuteAddOrderCommand, CanExecuteAddOrderCommand);
     }
 
-    private bool CanExecuteAddOrderCommand(object? obj) => IsGridActive;
+    private bool CanExecuteAddOrderCommand(object? obj) => IsListActive;
 
 
     private void ExecuteAddOrderCommand(object? obj)
@@ -41,7 +53,7 @@ class TableVM : BaseVM
         MessageBox.Show("salam");
     }
 
-    private bool CanExecuteBillCommand(object? obj) => true;
+    private bool CanExecuteBillCommand(object? obj) => IsListActive;
 
     private void ExecuteBillCommand(object? obj)
     {
@@ -50,7 +62,8 @@ class TableVM : BaseVM
 
     private void ExecuteTableCommand(object? obj)
     {
-        IsGridActive = true;
-        //OrderGrid.
+        IsListActive = true;
+        Button? button = obj as Button;
+        OrderedFood = TableOrderedFood[$"{button?.Name}"];
     }
 }

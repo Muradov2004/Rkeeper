@@ -8,10 +8,10 @@
              Margin="20,10,0,0"
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition  Width="3*"/>
+            <ColumnDefinition  Width="2.8*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="LightGray">
@@ -19,19 +19,19 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Margin="18,15,18,0" Background="WhiteSmoke">
+            <Grid Margin="8,15,8,0" Background="WhiteSmoke">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Name="OrderGrid">
-                    <ListView x:Name="lsit" Background="#d6efeb" ItemsSource="{Binding }" >
+                    <ListView ItemsSource="{Binding OrderedFood}" FontSize="20" SelectionMode="Single">
                         <ListView.View>
                             <GridView>
                                 <GridView.Columns>
-                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="auto"/>
-                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Surname}" Width="auto"/>
-                                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Surname}" Width="auto"/>
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="70"/>
+                                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="auto"/>
+                                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="auto"/>
                                 </GridView.Columns>
                             </GridView>
                         </ListView.View>
@@ -53,12 +53,12 @@
                         <Setter Property="FontSize" Value="25"/>
                     </Style>
                 </WrapPanel.Resources>
-                <Button Content="Tabel1" Command="{Binding TableCommand}"/>
-                <Button Content="Tabel2" Command="{Binding TableCommand}"/>
-                <Button Content="Tabel3" Command="{Binding TableCommand}"/>
-                <Button Content="Tabel4" Command="{Binding TableCommand}"/>
-                <Button Content="Tabel5" Command="{Binding TableCommand}"/>
-                <Button Content="Tabel6" Command="{Binding TableCommand}"/>
+                <Button Name="Table1"  Content="{Binding ElementName=Table1 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table1}"/>
+                <Button Name="Table2"  Content="{Binding ElementName=Table2 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table2}"/>
+                <Button Name="Table3"  Content="{Binding ElementName=Table3 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table3}"/>
+                <Button Name="Table4"  Content="{Binding ElementName=Table4 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table4}"/>
+                <Button Name="Table5"  Content="{Binding ElementName=Table5 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table5}"/>
+                <Button Name="Table6"  Content="{Binding ElementName=Table6 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table6}"/>
             </WrapPanel>
         </ScrollViewer>
     </Grid>

@@ -23,4 +23,6 @@ class Food
         ImageSource = imageSource;
         Price = price;
     }
+
+    public override string ToString() => $"{Name} - {Price} - {Count}";
 }

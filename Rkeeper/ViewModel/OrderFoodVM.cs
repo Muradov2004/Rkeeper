@@ -25,6 +25,10 @@ class OrderFoodVM : BaseVM
             new("Steak", 20) { Count = 1 },
             new("Steak", 12) { Count = 1 },
             new("Steak", 11) { Count = 1 },
+            new("Steak", 11) { Count = 1 },
+            new("Steak", 11) { Count = 1 },
+            new("Steak", 11) { Count = 1 },
+            new("Steak", 11) { Count = 1 },
             new("Steak", 14) { Count = 1 }
         };
     }

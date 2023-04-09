@@ -10,7 +10,17 @@
   <ItemGroup>
     <None Remove="Assets\LoginRegisterImages\LoginImage.png" />
     <None Remove="Assets\LoginRegisterImages\RegisterImage.png" />
+    <None Remove="Assets\MenuImages\BuffaloWings.jpg" />
+    <None Remove="Assets\MenuImages\CaesarSalad.jpg" />
+    <None Remove="Assets\MenuImages\ChickenBurger.jpg" />
     <None Remove="Assets\MenuImages\DefaultMenuFoodImage.jpg" />
+    <None Remove="Assets\MenuImages\FishChips.jpg" />
+    <None Remove="Assets\MenuImages\GrilledCheeseSandwich.jpg" />
+    <None Remove="Assets\MenuImages\MargheritaPizza.jpg" />
+    <None Remove="Assets\MenuImages\PadThai.jpg" />
+    <None Remove="Assets\MenuImages\PepperoniPizza.jpg" />
+    <None Remove="Assets\MenuImages\SpaghettiBolognese.jpg" />
+    <None Remove="Assets\MenuImages\SushiRoll.jpg" />
     <None Remove="Assets\rkeeper.ico" />
   </ItemGroup>
 
@@ -18,7 +28,17 @@
     <Resource Include="Assets\IconImage\rkeeper.ico" />
     <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
     <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />
+    <Resource Include="Assets\MenuImages\BuffaloWings.jpg" />
+    <Resource Include="Assets\MenuImages\CaesarSalad.jpg" />
+    <Resource Include="Assets\MenuImages\ChickenBurger.jpg" />
     <Resource Include="Assets\MenuImages\DefaultMenuFoodImage.jpg" />
+    <Resource Include="Assets\MenuImages\FishChips.jpg" />
+    <Resource Include="Assets\MenuImages\GrilledCheeseSandwich.jpg" />
+    <Resource Include="Assets\MenuImages\MargheritaPizza.jpg" />
+    <Resource Include="Assets\MenuImages\PadThai.jpg" />
+    <Resource Include="Assets\MenuImages\PepperoniPizza.jpg" />
+    <Resource Include="Assets\MenuImages\SpaghettiBolognese.jpg" />
+    <Resource Include="Assets\MenuImages\SushiRoll.jpg" />
   </ItemGroup>
 
 </Project>

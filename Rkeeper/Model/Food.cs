@@ -11,16 +11,16 @@ class Food
 
     public string? Name { get; set; }
 
-    public string? ImageSource { get; set; }
+    public string? ImageSource { get; set; } = "pack://application:,,,/Rkeeper;component/";
 
     public double Price { get; set; }
 
     public int Count { get; set; }
 
-    public Food(string? name, double price, string imageSource = "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg")
+    public Food(string? name, double price, string imageSource = "Assets/MenuImages/DefaultMenuFoodImage.jpg")
     {
         Name = name;
-        ImageSource = imageSource;
+        ImageSource += imageSource;
         Price = price;
     }
 

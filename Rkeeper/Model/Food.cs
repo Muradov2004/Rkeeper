@@ -17,7 +17,7 @@ class Food
 
     public int Count { get; set; }
 
-    public Food(string? name, double price, string imageSource = "../Assets/MenuImages/DefaultMenuFoodImage.jpg")
+    public Food(string? name, double price, string imageSource = "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg")
     {
         Name = name;
         ImageSource = imageSource;

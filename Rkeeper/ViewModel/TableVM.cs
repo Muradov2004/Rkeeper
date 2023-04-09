@@ -20,7 +20,7 @@ class TableVM : BaseVM
 
     public Dictionary<string, ObservableCollection<Food>> TableOrderedFood { get; set; }
 
-    public ObservableCollection<Food> OrderedFood { get; set; } = new();
+    public ObservableCollection<Food> OrderedFood { get; set; }
 
     private readonly NavigationStore _navigation;
 
@@ -40,6 +40,7 @@ class TableVM : BaseVM
             { "Table5" , new() { new("Steak", 11) { Count = 1 } } },
             { "Table6" , new() { new("Steak", 5) { Count = 1 } } },
         };
+        OrderedFood = new();
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
         AddOrderCommand = new RelayCommand(ExecuteAddOrderCommand, CanExecuteAddOrderCommand);
@@ -64,6 +65,9 @@ class TableVM : BaseVM
     {
         IsListActive = true;
         Button? button = obj as Button;
-        OrderedFood = TableOrderedFood[$"{button?.Name}"];
+        OrderedFood.Clear();
+        foreach (var food in TableOrderedFood[$"{button?.Name}"])
+            OrderedFood.Add(food);
+
     }
 }

@@ -18,18 +18,6 @@ class OrderFoodVM : BaseVM
     public OrderFoodVM(NavigationStore navigation)
     {
         _navigation = navigation;
-        OrderedFood = new()
-        {
-            new("Pizza", 10) { Count = 1 },
-            new("Pasta", 12) { Count = 1 },
-            new("Steak", 20) { Count = 1 },
-            new("Steak", 12) { Count = 1 },
-            new("Steak", 11) { Count = 1 },
-            new("Steak", 11) { Count = 1 },
-            new("Steak", 11) { Count = 1 },
-            new("Steak", 11) { Count = 1 },
-            new("Steak", 11) { Count = 1 },
-            new("Steak", 14) { Count = 1 }
-        };
+        OrderedFood = new FoodMenu().MenuFoods;
     }
 }

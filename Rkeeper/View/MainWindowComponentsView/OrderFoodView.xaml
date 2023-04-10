@@ -19,9 +19,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" Text="Food Name" FontSize="18"/>
-            <TextBlock Grid.Column="2" Text="Price" FontSize="18"/>
-            <TextBlock Grid.Column="3" Text="Count"  FontSize="18"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="Food Name" FontSize="18"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Price" FontSize="18"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="Count"  FontSize="18"/>
         </Grid>
         <ListView ItemsSource="{Binding OrderedFood}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
             <ListView.ItemsPanel>
@@ -31,10 +31,18 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5"/>
-                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                    </StackPanel>
+                    <Grid Height="auto" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImageSource}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

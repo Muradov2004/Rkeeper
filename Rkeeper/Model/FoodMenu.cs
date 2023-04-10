@@ -17,7 +17,7 @@ class FoodMenu
         MenuFoods = new ObservableCollection<Food>()
         {
             new("Chicken Burger" ,8.99 ,"Assets/MenuImages/ChickenBurger.jpg"),
-            new("Caesar Salad" ,10.50 ,"Assets/MenuImages/CeaserSalad.jpg"),
+            new("Caesar Salad" ,10.50 ,"Assets/MenuImages/CaesarSalad.jpg"),
             new("Margherita Pizza" ,12.95 ,"Assets/MenuImages/MargheritaPizza.jpg"),
             new("Fish and Chips" ,14.99 ,"Assets/MenuImages/FishChips.jpg"),
             new("Pepperoni Pizza" ,9.75 ,"Assets/MenuImages/PepperoniPizza.jpg"),

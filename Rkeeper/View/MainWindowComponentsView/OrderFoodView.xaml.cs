@@ -13,16 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Rkeeper.View.MainWindowComponentsView
+namespace Rkeeper.View.MainWindowComponentsView;
+
+/// <summary>
+/// Interaction logic for OrderFoodView.xaml
+/// </summary>
+public partial class OrderFoodView : UserControl
 {
-    /// <summary>
-    /// Interaction logic for OrderFoodView.xaml
-    /// </summary>
-    public partial class OrderFoodView : UserControl
-    {
-        public OrderFoodView()
-        {
-            InitializeComponent();
-        }
-    }
+    public OrderFoodView() => InitializeComponent();
 }

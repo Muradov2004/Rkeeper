@@ -21,6 +21,7 @@ class TableVM : BaseVM
     public Dictionary<string, ObservableCollection<Food>> TableOrderedFood { get; set; }
 
     public ObservableCollection<Food> OrderedFood { get; set; }
+    public string? SelectedTableName { get; set; }
 
     private readonly NavigationStore _navigation;
 
@@ -51,7 +52,7 @@ class TableVM : BaseVM
 
     private void ExecuteAddOrderCommand(object? obj)
     {
-        MessageBox.Show("salam");
+        _navigation.CurrentVM = new OrderFoodVM(_navigation, OrderedFood, SelectedTableName);
     }
 
     private bool CanExecuteBillCommand(object? obj) => IsListActive;
@@ -66,8 +67,8 @@ class TableVM : BaseVM
         IsListActive = true;
         Button? button = obj as Button;
         OrderedFood.Clear();
+        SelectedTableName = button?.Name;
         foreach (var food in TableOrderedFood[$"{button?.Name}"])
             OrderedFood.Add(food);
-
     }
 }

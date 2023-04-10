@@ -12,41 +12,46 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Width="700" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="2.5*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding TableName}" FontSize="18"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="Food Name" FontSize="18"/>
             <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Price" FontSize="18"/>
             <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="Count"  FontSize="18"/>
+            <Button Grid.Column="4" HorizontalAlignment="Right" Content="Done" FontSize="18" Command="{Binding DoneCommand}"/>
         </Grid>
-        <ListView ItemsSource="{Binding OrderedFood}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+        <ListView ItemsSource="{Binding MenuFood}" ScrollViewer.VerticalScrollBarVisibility="Visible"  Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical"/>
+                    <WrapPanel Name="Wrap" Orientation="Vertical" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="auto" HorizontalAlignment="Stretch">
+                    <Grid Height="auto" Width="700">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="2.5*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="{Binding ImageSource}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Width="25" />
+                        <Button Grid.Column="4" Content="Order" Height="60"  FontSize="18" FontWeight="Bold" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding OrderedFood}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Visible" Grid.Row="2">
+        <ListView ItemsSource="{Binding OrderedFood}" ScrollViewer.HorizontalScrollBarVisibility="Visible" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
@@ -54,10 +59,11 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5"/>
-                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                    </StackPanel>
+                    <Grid>
+                        <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5,15,5,2"/>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Top"  FontWeight="Bold"/>
+                        <Button Width="14" Height="14" Content="x" HorizontalAlignment="Right"  VerticalAlignment="Top" Padding="-10"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -48,7 +48,7 @@ namespace Rkeeper.View.LoginRegisterView
             if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
             {
                 NavigationStore _navigationStore = new();
-                _navigationStore.CurrentVM = new OrderFoodVM(_navigationStore);
+                _navigationStore.CurrentVM = new TableVM(_navigationStore);
                 MainView mainView = new MainView()
                 {
                     DataContext = new MainVM(_navigationStore)

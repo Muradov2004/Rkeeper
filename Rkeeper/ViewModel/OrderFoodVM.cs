@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Rkeeper.ViewModel;
 
@@ -21,6 +22,7 @@ class OrderFoodVM : BaseVM
 
     public ICommand? DoneCommand { get; set; }
     public ICommand? AddListCommand { get; set; }
+    public ICommand? RemoveCommand { get; set; }
 
     public OrderFoodVM(NavigationStore navigation, ObservableCollection<Food> orderedFood = null, string? tableName = "")
     {
@@ -30,6 +32,15 @@ class OrderFoodVM : BaseVM
         OrderedFood = orderedFood;
         DoneCommand = new RelayCommand(ExecuteDoneCommand);
         AddListCommand = new RelayCommand(ExecuteAddListCommand);
+        RemoveCommand = new RelayCommand(ExecuteRemoveCommand);
+    }
+
+    private void ExecuteRemoveCommand(object? obj)
+    {
+
+        Food? foodToRemove = OrderedFood.FirstOrDefault(f => f.Name == obj?.ToString());
+        OrderedFood.Remove(foodToRemove);
+
     }
 
     private void ExecuteAddListCommand(object? obj)

@@ -62,7 +62,7 @@
                     <Grid>
                         <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5,15,5,2"/>
                         <TextBlock Text="{Binding Name}" VerticalAlignment="Top"  FontWeight="Bold"/>
-                        <Button Width="14" Height="14" Content="x" HorizontalAlignment="Right"  VerticalAlignment="Top" Padding="-10"/>
+                        <Button Width="14" Height="14" Content="x" HorizontalAlignment="Right"  VerticalAlignment="Top" Padding="-1" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

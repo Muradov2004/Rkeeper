@@ -3,14 +3,13 @@ using Rkeeper.ViewModel.Command;
 using Rkeeper.View.MainWindowComponentsView;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using Rkeeper.Model;
 using System.Windows.Controls;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Rkeeper.ViewModel;
 
@@ -18,7 +17,7 @@ class TableVM : BaseVM
 {
     private bool IsListActive = false;
 
-    public Dictionary<string, ObservableCollection<Food>> TableOrderedFood { get; set; }
+    public Dictionary<string, ObservableCollection<Food>> TableOrderedFood { get; set; } = new();
 
     public ObservableCollection<Food> OrderedFood { get; set; }
     public string? SelectedTableName { get; set; }
@@ -32,15 +31,8 @@ class TableVM : BaseVM
     public TableVM(NavigationStore navigation)
     {
         _navigation = navigation;
-        TableOrderedFood = new()
-        {
-            { "Table1" , new() { new("Pizza", 10) { Count = 1 } } },
-            { "Table2" , new() { new("Pasta", 12) { Count = 1 } } },
-            { "Table3" , new() { new("Steak", 20) { Count = 1 } } },
-            { "Table4" , new() { new("Steak", 12) { Count = 1 } } },
-            { "Table5" , new() { new("Steak", 11) { Count = 1 } } },
-            { "Table6" , new() { new("Steak", 5) { Count = 1 } } },
-        };
+        JsonToTableOrderedFood();
+        //TableOrderedFoodToJson();
         OrderedFood = new();
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
@@ -70,5 +62,21 @@ class TableVM : BaseVM
         SelectedTableName = button?.Name;
         foreach (var food in TableOrderedFood[$"{button?.Name}"])
             OrderedFood.Add(food);
+    }
+
+    private void TableOrderedFoodToJson()
+    {
+        string json = JsonConvert.SerializeObject(TableOrderedFood, Newtonsoft.Json.Formatting.Indented);
+
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\TableOrderFood.json";
+        File.WriteAllText(path, json);
+    }
+
+    private void JsonToTableOrderedFood()
+    {
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\TableOrderFood.json";
+        string TableOrderedFoodJson = File.ReadAllText(path);
+        TableOrderedFood.Clear();
+        TableOrderedFood = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Food>>>(TableOrderedFoodJson);
     }
 }

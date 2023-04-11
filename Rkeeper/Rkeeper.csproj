@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\IconImage\rkeeper.ico" />
     <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
     <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />

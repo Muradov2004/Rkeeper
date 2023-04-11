@@ -1,50 +1,21 @@
 {
   "Table1": [
     {
-      "Name": "Pizza",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 10.0,
+      "Name": "Chicken Burger",
+      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/ChickenBurger.jpg",
+      "Price": 8.99,
+      "Count": 5
+    },
+    {
+      "Name": "Caesar Salad",
+      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/CaesarSalad.jpg",
+      "Price": 10.5,
       "Count": 1
     }
   ],
-  "Table2": [
-    {
-      "Name": "Pasta",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 12.0,
-      "Count": 1
-    }
-  ],
-  "Table3": [
-    {
-      "Name": "Steak",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 20.0,
-      "Count": 1
-    }
-  ],
-  "Table4": [
-    {
-      "Name": "Steak",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 12.0,
-      "Count": 1
-    }
-  ],
-  "Table5": [
-    {
-      "Name": "Steak",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 11.0,
-      "Count": 1
-    }
-  ],
-  "Table6": [
-    {
-      "Name": "Steak",
-      "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/DefaultMenuFoodImage.jpg",
-      "Price": 5.0,
-      "Count": 1
-    }
-  ]
+  "Table2": [],
+  "Table3": [],
+  "Table4": [],
+  "Table5": [],
+  "Table6": []
 }

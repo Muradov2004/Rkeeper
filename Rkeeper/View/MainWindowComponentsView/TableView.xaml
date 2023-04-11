@@ -11,7 +11,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition  Width="2.8*"/>
+            <ColumnDefinition  Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="LightGray">
@@ -29,7 +29,7 @@
                         <ListView.View>
                             <GridView>
                                 <GridView.Columns>
-                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="70"/>
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="90"/>
                                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="auto"/>
                                     <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="auto"/>
                                 </GridView.Columns>

@@ -17,11 +17,17 @@ class Food
 
     public int Count { get; set; }
 
-    public Food(string? name, double price, string imageSource = "Assets/MenuImages/DefaultMenuFoodImage.jpg")
+    public Food()
+    {
+        ImageSource += "Assets/MenuImages/DefaultMenuFoodImage.jpg";
+    }
+
+    public Food(string? name, double price, string imageSource = "Assets/MenuImages/DefaultMenuFoodImage.jpg", int count = 1)
     {
         Name = name;
         ImageSource += imageSource;
         Price = price;
+        Count = count;
     }
 
     public override string ToString() => $"{Name} - {Price} - {Count}";

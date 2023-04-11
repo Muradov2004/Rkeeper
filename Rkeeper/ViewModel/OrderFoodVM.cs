@@ -1,20 +1,19 @@
-﻿using Rkeeper.Model;
+﻿using Newtonsoft.Json;
+using Rkeeper.Model;
 using Rkeeper.Stores;
 using Rkeeper.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace Rkeeper.ViewModel;
 
 class OrderFoodVM : BaseVM
 {
-    public ObservableCollection<Food> OrderedFood { get; set; }
+    public ObservableCollection<Food> OrderedFood { get; set; } = new();
     public string? TableName { get; set; }
     public List<Food> MenuFood { get; set; }
 
@@ -24,12 +23,10 @@ class OrderFoodVM : BaseVM
     public ICommand? AddListCommand { get; set; }
     public ICommand? RemoveCommand { get; set; }
 
-    public OrderFoodVM(NavigationStore navigation, ObservableCollection<Food> orderedFood = null, string? tableName = "")
+    public OrderFoodVM(NavigationStore navigation)
     {
         _navigation = navigation;
         MenuFood = new FoodMenu().MenuFoods.ToList();
-        TableName = tableName;
-        OrderedFood = orderedFood;
         DoneCommand = new RelayCommand(ExecuteDoneCommand);
         AddListCommand = new RelayCommand(ExecuteAddListCommand);
         RemoveCommand = new RelayCommand(ExecuteRemoveCommand);
@@ -48,14 +45,64 @@ class OrderFoodVM : BaseVM
         foreach (var food in MenuFood)
         {
             if (food.Name == obj?.ToString())
+            {
                 OrderedFood.Add(food);
+                break;
+            }
         }
     }
 
     private void ExecuteDoneCommand(object? obj)
     {
+        CombineOrder();
+        AddNewOrderToJson();
         _navigation.CurrentVM = new TableVM(_navigation);
     }
 
+    private string GetImageSource(string foodName)
+    {
+        string imageSource = "";
+        foreach (var item in OrderedFood)
+        {
+            if (item.Name == foodName)
+            {
+                imageSource = item.ImageSource[41..];
+                break;
+            }
+        }
+        return imageSource;
 
+    }
+
+    private void CombineOrder()
+    {
+        var groupedFoods = OrderedFood
+                            .GroupBy(f => f.Name)
+                            .Select(g => new Food(g.Key, g.Average(f => f.Price), GetImageSource(g.Key), g.Sum(f => f.Count)))
+                            .ToList();
+
+        OrderedFood.Clear();
+        foreach (var food in groupedFoods)
+            OrderedFood.Add(food);
+
+    }
+
+    private void AddNewOrderToJson()
+    {
+        Dictionary<string, ObservableCollection<Food>>? TableOrderedFood = new();
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\TableOrderFood.json";
+        string TableOrderedFoodJson = File.ReadAllText(path);
+        TableOrderedFood = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Food>>>(TableOrderedFoodJson);
+        foreach (var key in TableOrderedFood.Keys)
+        {
+            if (key == TableName)
+            {
+                TableOrderedFood[key].Clear();
+                foreach (var item in OrderedFood)
+                    TableOrderedFood[key].Add(item);
+            }
+        }
+        string json = JsonConvert.SerializeObject(TableOrderedFood, Formatting.Indented);
+        File.WriteAllText(path, json);
+    }
 }

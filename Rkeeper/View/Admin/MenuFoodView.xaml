@@ -3,10 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:local="clr-namespace:Rkeeper.View.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Menu" FontSize="50"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Add Food To Menu" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
+            <TextBox Name="FoodName" Grid.Row="1" Style="{StaticResource txtStyle}"/>
+            <TextBox Name="ImageLocation" Grid.Row="2" Style="{StaticResource txtStyle}"/>
+            <TextBox Name="Price" Grid.Row="3" Style="{StaticResource txtStyle}"/>
+            <TextBox Name="Count" Grid.Row="4" Style="{StaticResource txtStyle}"/>
+            <Button Grid.Row="5" Content="Add"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <ListView ItemsSource="{Binding MenuFood}" ScrollViewer.VerticalScrollBarVisibility="Visible"  Grid.Row="1">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Name="Wrap" Orientation="Vertical" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="auto" Width="100">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageSource}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Width="25" />
+                            <Button Grid.Column="4" Content="Order" Height="60"  FontSize="18" FontWeight="Bold" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>

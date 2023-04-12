@@ -24,6 +24,15 @@
             <DataTemplate DataType="{x:Type viewModel:AdminVM}">
                 <adminView:AdminView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:MenuFoodVM}">
+                <adminView:MenuFoodView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminTableVM}">
+                <adminView:AdminTableView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:LogfileVM}">
+                <adminView:LogfileView/>
+            </DataTemplate>
         </Grid.Resources>
 
         <ContentControl Content="{Binding CurrentVM}"/>

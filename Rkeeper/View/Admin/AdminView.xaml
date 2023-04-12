@@ -15,6 +15,6 @@
         <Button Grid.Row="0" VerticalAlignment="Bottom" Height="100" Width="380" Margin="30" Content="A d d  F o o d  t o  M e n u" FontSize="28" FontWeight="Black" Command="{Binding AddFoodToMenuCommand}"/>
         <Button Grid.Row="1" VerticalAlignment="Center" Height="100" Width="220" Content="T a b l e s" FontSize="28" FontWeight="Black" Command="{Binding TableCommand}"/>
         <Button Grid.Row="2" VerticalAlignment="Top" Height="100" Width="250" Margin="30" Content="L o g  F i l e" FontSize="28" FontWeight="Black" Command="{Binding LogFileCommand}"/>
-        <Button Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,10,10" Content="L o g o u t" FontSize="15" FontWeight="Bold" Command="{Binding LogoutCommand}"/>
+        <Button Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,10,10" Content="L o g o u t" FontSize="15" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
     </Grid>
 </UserControl>

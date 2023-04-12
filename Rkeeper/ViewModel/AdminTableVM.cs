@@ -1,12 +1,18 @@
-﻿using System;
+﻿using Rkeeper.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rkeeper.ViewModel
+namespace Rkeeper.ViewModel;
+
+internal class AdminTableVM : BaseVM
 {
-    internal class AdminTableVM
+    private readonly NavigationStore _navigationStore;
+
+    public AdminTableVM(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
     }
 }

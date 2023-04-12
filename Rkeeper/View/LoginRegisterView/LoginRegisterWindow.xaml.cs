@@ -45,10 +45,21 @@ namespace Rkeeper.View.LoginRegisterView
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
+            if (loginPage.Username.Text == "user" && loginPage.Password.Password == "user")
             {
                 NavigationStore _navigationStore = new();
                 _navigationStore.CurrentVM = new TableVM(_navigationStore);
+                MainView mainView = new MainView()
+                {
+                    DataContext = new MainVM(_navigationStore)
+                };
+                mainView.Show();
+                Close();
+            }
+            else if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
+            {
+                NavigationStore _navigationStore = new();
+                _navigationStore.CurrentVM = new AdminVM(_navigationStore);
                 MainView mainView = new MainView()
                 {
                     DataContext = new MainVM(_navigationStore)

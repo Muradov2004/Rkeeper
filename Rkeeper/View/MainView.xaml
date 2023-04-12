@@ -6,6 +6,7 @@
 		xmlns:local="clr-namespace:Rkeeper.View"
         xmlns:viewModel="clr-namespace:Rkeeper.ViewModel"
         xmlns:view="clr-namespace:Rkeeper.View.MainWindowComponentsView"
+        xmlns:adminView="clr-namespace:Rkeeper.View.Admin"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
@@ -19,6 +20,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:BillVM}">
                 <view:BillView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminVM}">
+                <adminView:AdminView/>
             </DataTemplate>
         </Grid.Resources>
 

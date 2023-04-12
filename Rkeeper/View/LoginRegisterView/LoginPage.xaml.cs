@@ -25,7 +25,7 @@ namespace Rkeeper.View.LoginRegisterView
             InitializeComponent();
         }
 
-        private void Password_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
             TextBlock placeHolderTextBlock = (TextBlock)Password.Template.FindName("PlaceHolder", Password);

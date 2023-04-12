@@ -10,7 +10,7 @@
         
         <Setter Property="Height" Value="550"/>
         
-        <Setter Property="MinWidth" Value="700"/>
+        <Setter Property="MinWidth" Value="800"/>
         
         <Setter Property="MinHeight" Value="500"/>
         

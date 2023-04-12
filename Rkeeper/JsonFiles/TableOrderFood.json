@@ -4,13 +4,13 @@
       "Name": "Chicken Burger",
       "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/ChickenBurger.jpg",
       "Price": 8.99,
-      "Count": 5
+      "Count": 4
     },
     {
       "Name": "Caesar Salad",
       "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/CaesarSalad.jpg",
       "Price": 10.5,
-      "Count": 1
+      "Count": 2
     }
   ],
   "Table2": [],

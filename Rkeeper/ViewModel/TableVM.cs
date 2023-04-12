@@ -44,7 +44,17 @@ class TableVM : BaseVM
 
     private void ExecuteAddOrderCommand(object? obj)
     {
-        _navigation.CurrentVM = new OrderFoodVM(_navigation) { OrderedFood = OrderedFood, TableName = SelectedTableName };
+        ObservableCollection<Food> SeperatedFood = new();
+        foreach (Food food in OrderedFood)
+        {
+            int count = food.Count;
+            for (int i = 0; i < count; i++)
+            {
+                food.Count = 1;
+                SeperatedFood.Add(food);
+            }
+        }
+        _navigation.CurrentVM = new OrderFoodVM(_navigation) { OrderedFood = SeperatedFood, TableName = SelectedTableName };
     }
 
     private bool CanExecuteBillCommand(object? obj) => IsListActive;
@@ -52,10 +62,14 @@ class TableVM : BaseVM
     private void ExecuteBillCommand(object? obj)
     {
         ObservableCollection<Food> TotalOrderedFood = new();
+        double totalprice = 0;
         foreach (var item in OrderedFood)
+        {
             TotalOrderedFood.Add(item);
-        TotalOrderedFood.Add(new Food { Name = "Total", Price = Math.Round(OrderedFood.Sum(f => f.Price), 2) });
-        _navigation.CurrentVM = new BillVM(_navigation) { OrderedFood = TotalOrderedFood };
+            totalprice += item.Price * item.Count;
+        }
+        TotalOrderedFood.Add(new Food { Name = "Total", Price = Math.Round(totalprice, 2) });
+        _navigation.CurrentVM = new BillVM(_navigation) { OrderedFood = TotalOrderedFood, TableName = SelectedTableName };
     }
 
     private void ExecuteTableCommand(object? obj)

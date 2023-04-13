@@ -93,14 +93,15 @@ internal class MenuFoodVM : BaseVM
 
     private bool CanExecuteAddCommand(object? obj)
     {
-        return !(string.IsNullOrEmpty(_foodName) || string.IsNullOrEmpty(_imageLocation) || string.IsNullOrEmpty(_price) || string.IsNullOrEmpty(_count));
+        return !(string.IsNullOrEmpty(_foodName) || string.IsNullOrEmpty(_imageLocation) || string.IsNullOrEmpty(_price) || !IsImage(_imageLocation) || string.IsNullOrEmpty(_count) || !double.TryParse(_price,out _) || !int.TryParse(_count, out _));
     }
 
     private void ExecuteAddCommand(object? obj)
     {
+
         string imageName = Path.GetFileName(_imageLocation);
         string destinationPath = AppDomain.CurrentDomain.BaseDirectory[..^25];
-        string targetFilePath = Path.Combine(destinationPath,"Assets","MenuImages" ,imageName);
+        string targetFilePath = Path.Combine(destinationPath, "Assets", "MenuImages", imageName);
         File.Copy(_imageLocation, targetFilePath, true);
 
     }

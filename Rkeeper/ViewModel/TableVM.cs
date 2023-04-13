@@ -3,14 +3,15 @@ using Rkeeper.ViewModel.Command;
 using Rkeeper.View.MainWindowComponentsView;
 using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using Rkeeper.Model;
 using System.Windows.Controls;
 using Newtonsoft.Json;
 using System.IO;
-using System.Linq;
+using System.Windows.Threading;
+using System.Windows;
+using Rkeeper.View.LoginRegisterView;
 
 namespace Rkeeper.ViewModel;
 
@@ -18,6 +19,18 @@ class TableVM : BaseVM
 {
     private bool IsListActive = false;
 
+    public string Username { get; set; } = "salam";
+ 
+    private string _time;
+    public string Time
+    {
+        get { return _time; }
+        set
+        {
+            _time = value;
+            NotifyPropertyChanged(nameof(Time));
+        }
+    }
     public Dictionary<string, ObservableCollection<Food>>? TableOrderedFood { get; set; } = new();
 
     public ObservableCollection<Food> OrderedFood { get; set; }
@@ -28,15 +41,42 @@ class TableVM : BaseVM
     public ICommand? TableCommand { get; set; }
     public ICommand? BillCommand { get; set; }
     public ICommand? AddOrderCommand { get; set; }
+    public ICommand? LogoutCommand { get; set; }
 
     public TableVM(NavigationStore navigation)
     {
         _navigation = navigation;
         JsonToTableOrderedFood();
+        SetClock();
         OrderedFood = new();
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
         AddOrderCommand = new RelayCommand(ExecuteAddOrderCommand, CanExecuteAddOrderCommand);
+        LogoutCommand = new RelayCommand(ExecuteLogoutCommand);
+    }
+
+    private void ExecuteLogoutCommand(object? obj)
+    {
+
+        LoginRegisterWindow loginRegisterWindow = new LoginRegisterWindow();
+        loginRegisterWindow.Show();
+
+        var window = Window.GetWindow(obj as DependencyObject);
+
+        window?.Close();
+    }
+
+    private void SetClock()
+    {
+        DispatcherTimer timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromSeconds(1);
+        timer.Tick += timer_Tick;
+        timer.Start();
+    }
+
+    private void timer_Tick(object sender, EventArgs e)
+    {
+        Time = DateTime.Now.ToString("T");
     }
 
     private bool CanExecuteAddOrderCommand(object? obj) => IsListActive;

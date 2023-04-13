@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "Chicken Burger",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/ChickenBurger.jpg",
+    "Price": 8.99,
+    "Count": 1
+  },
+  {
+    "Name": "Caesar Salad",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/CaesarSalad.jpg",
+    "Price": 10.5,
+    "Count": 1
+  },
+  {
+    "Name": "Margherita Pizza",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/MargheritaPizza.jpg",
+    "Price": 12.95,
+    "Count": 1
+  },
+  {
+    "Name": "Fish and Chips",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/FishChips.jpg",
+    "Price": 14.99,
+    "Count": 1
+  },
+  {
+    "Name": "Pepperoni Pizza",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/PepperoniPizza.jpg",
+    "Price": 9.75,
+    "Count": 1
+  },
+  {
+    "Name": "Pad Thai",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/PadThai.jpg",
+    "Price": 11.25,
+    "Count": 1
+  },
+  {
+    "Name": "Grilled Cheese Sandwich",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/GrilledCheeseSandwich.jpg",
+    "Price": 6.5,
+    "Count": 1
+  },
+  {
+    "Name": "Spaghetti Bolognese",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/SpaghettiBolognese.jpg",
+    "Price": 13.75,
+    "Count": 1
+  },
+  {
+    "Name": "Buffalo Wings",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/BuffaloWings.jpg",
+    "Price": 8.25,
+    "Count": 1
+  },
+  {
+    "Name": "Sushi Roll",
+    "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/SushiRoll.jpg",
+    "Price": 9.95,
+    "Count": 1
+  }
+]

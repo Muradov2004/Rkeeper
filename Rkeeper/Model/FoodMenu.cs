@@ -1,32 +1,42 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace Rkeeper.Model;
 
 class FoodMenu
 {
 
-    public ObservableCollection<Food> MenuFoods { get; set; }
+    public ObservableCollection<Food> MenuFoods { get; set; } = new();
 
     public FoodMenu()
     {
-        MenuFoods = new ObservableCollection<Food>()
-        {
-            new("Chicken Burger" ,8.99 ,"Assets/MenuImages/ChickenBurger.jpg"),
-            new("Caesar Salad" ,10.50 ,"Assets/MenuImages/CaesarSalad.jpg"),
-            new("Margherita Pizza" ,12.95 ,"Assets/MenuImages/MargheritaPizza.jpg"),
-            new("Fish and Chips" ,14.99 ,"Assets/MenuImages/FishChips.jpg"),
-            new("Pepperoni Pizza" ,9.75 ,"Assets/MenuImages/PepperoniPizza.jpg"),
-            new("Pad Thai" ,11.25 ,"Assets/MenuImages/PadThai.jpg"),
-            new("Grilled Cheese Sandwich" ,6.50 ,"Assets/MenuImages/GrilledCheeseSandwich.jpg"),
-            new("Spaghetti Bolognese" ,13.75 ,"Assets/MenuImages/SpaghettiBolognese.jpg"),
-            new("Buffalo Wings" ,8.25 ,"Assets/MenuImages/BuffaloWings.jpg"),
-            new("Sushi Roll" ,9.95 ,"Assets/MenuImages/SushiRoll.jpg"),
-        };
+        JsonToMenu();
     }
 
+    public void MenuToJson()
+    {
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\Menu.json";
+        string TableOrderedFoodJson = File.ReadAllText(path);
+        string json = JsonConvert.SerializeObject(MenuFoods, Formatting.Indented);
+        File.WriteAllText(path, json);
+    }
+
+    public void JsonToMenu()
+    {
+        MenuFoods.Clear();
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\Menu.json";
+        string MenuJson = File.ReadAllText(path);
+        foreach (var item in JsonConvert.DeserializeObject<ObservableCollection<Food>>(MenuJson))
+        {
+            MenuFoods.Add(item);
+        }
+
+    }
 }

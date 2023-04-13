@@ -2,6 +2,7 @@
 using Rkeeper.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,9 @@ namespace Rkeeper.View.LoginRegisterView
         {
             if (loginPage.Username.Text == "user" && loginPage.Password.Password == "user")
             {
+
+                string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\LogFile.txt";
+                File.AppendAllText(path, $"Log : User logged in Time : {DateTime.Now.ToString("G")}\n");
                 NavigationStore _navigationStore = new();
                 _navigationStore.CurrentVM = new TableVM(_navigationStore);
                 MainView mainView = new MainView()
@@ -58,6 +62,8 @@ namespace Rkeeper.View.LoginRegisterView
             }
             else if (loginPage.Username.Text == "admin" && loginPage.Password.Password == "admin")
             {
+                string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\LogFile.txt";
+                File.AppendAllText(path, $"Log : Admin logged in Time : {DateTime.Now.ToString("G")}\n");
                 NavigationStore _navigationStore = new();
                 _navigationStore.CurrentVM = new AdminVM(_navigationStore);
                 MainView mainView = new MainView()

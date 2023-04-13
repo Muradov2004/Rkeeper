@@ -9,12 +9,43 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="130"/>
+            <RowDefinition Height="350"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" VerticalAlignment="Bottom" Height="100" Width="380" Margin="30" Content="A d d  F o o d  t o  M e n u" FontSize="28" FontWeight="Black" Command="{Binding AddFoodToMenuCommand}"/>
-        <Button Grid.Row="1" VerticalAlignment="Center" Height="100" Width="220" Content="T a b l e s" FontSize="28" FontWeight="Black" Command="{Binding TableCommand}"/>
-        <Button Grid.Row="2" VerticalAlignment="Top" Height="100" Width="250" Margin="30" Content="L o g  F i l e" FontSize="28" FontWeight="Black" Command="{Binding LogFileCommand}"/>
-        <Button Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,10,10" Content="L o g o u t" FontSize="15" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="550"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="15,20"/>
+                    <Setter Property="FontSize" Value="28"/>
+                    <Setter Property="FontWeight" Value="Black"/>
+                </Style>
+            </Grid.Resources>
+            <Button Command="{Binding AddFoodToMenuCommand}">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap" Text="A d d  F o o d       t o  M e n u" TextAlignment="Center"/>
+                </Button.Content>
+            </Button>
+            <Button Grid.Row="1" Content="T a b l e s" Command="{Binding TableCommand}"/>
+            <Button Grid.Column="1" Grid.Row="1" Content="L o g  F i l e" Command="{Binding LogFileCommand}"/>
+            <Button Grid.Column="1" Grid.Row="0" Command="{Binding DownloadPDFCommand}">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap" Text="D o w n l o a d        H i s t o r y  P D F" TextAlignment="Center"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,6,10" Content="L o g o u t" FontSize="15" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
     </Grid>
 </UserControl>

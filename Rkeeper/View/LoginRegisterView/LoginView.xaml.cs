@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Rkeeper.View.LoginRegisterView
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginView : UserControl
     {
-        public LoginPage()
+        public LoginView()
         {
             InitializeComponent();
         }

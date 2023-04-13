@@ -7,10 +7,6 @@ namespace Rkeeper.View
     /// </summary>
     public partial class MainView : Window
     {
-        public MainView()
-        {
-            InitializeComponent();
-
-        }
+        public MainView() => InitializeComponent();
     }
 }

@@ -1,4 +1,6 @@
-﻿using Rkeeper.View.LoginRegisterView;
+﻿using Rkeeper.Stores;
+using Rkeeper.View.LoginRegisterView;
+using Rkeeper.ViewModel;
 using System.Windows;
 
 namespace Rkeeper.View.OpeningLoadingView
@@ -26,7 +28,12 @@ namespace Rkeeper.View.OpeningLoadingView
 				
 				Application.Current.Dispatcher.Invoke(() =>
 				{
-					LoginRegisterWindow LoginWindow = new();
+					NavigationStore _navigationStore = new();
+					_navigationStore.CurrentVM = new LoginVM(_navigationStore);
+					LoginRegisterWindow LoginWindow = new LoginRegisterWindow()
+					{
+						DataContext = new LoginRegisterVM(_navigationStore)
+					};
 					LoginWindow.Show();
 
 					Close();

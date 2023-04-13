@@ -20,9 +20,6 @@ namespace Rkeeper.View.MainWindowComponentsView
     /// </summary>
     public partial class TableView : UserControl
     {
-        public TableView()
-        {
-            InitializeComponent();
-        }
+        public TableView() => InitializeComponent();
     }
 }

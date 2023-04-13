@@ -3,12 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Rkeeper.ViewModel"
         xmlns:local="clr-namespace:Rkeeper.View.LoginRegisterView"
         mc:Ignorable="d"
 		ResizeMode="CanMinimize"
     	WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
+    
     <Grid>
-        <Frame x:Name="MainContent" NavigationUIVisibility="Hidden"/>
+        
+        <Grid.Resources>
+        
+            <DataTemplate DataType="{x:Type viewModel:LoginVM}">
+            
+                <local:LoginView/>
+            
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:RegisterVM}">
+            
+                <local:RegisterView/>
+            
+            </DataTemplate>
+
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentVM}"/>
+
     </Grid>
+
 </Window>

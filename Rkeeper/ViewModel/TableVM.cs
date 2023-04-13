@@ -57,8 +57,14 @@ class TableVM : BaseVM
 
     private void ExecuteLogoutCommand(object? obj)
     {
+        NavigationStore navigationStore = new();
 
-        LoginRegisterWindow loginRegisterWindow = new LoginRegisterWindow();
+        navigationStore.CurrentVM = new LoginVM(navigationStore);
+
+        LoginRegisterWindow loginRegisterWindow = new LoginRegisterWindow()
+        {
+            DataContext = new MainVM(navigationStore)
+        };
         loginRegisterWindow.Show();
 
         var window = Window.GetWindow(obj as DependencyObject);

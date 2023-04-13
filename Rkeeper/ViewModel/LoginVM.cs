@@ -18,7 +18,7 @@ internal class LoginVM : BaseVM
 
     private string _username;
 
-    public string Username
+    public string UsernameString
     {
         get => _username;
         set
@@ -26,7 +26,7 @@ internal class LoginVM : BaseVM
             if (_username != value)
             {
                 _username = value;
-                NotifyPropertyChanged(nameof(Username));
+                NotifyPropertyChanged(nameof(UsernameString));
             }
         }
     }
@@ -58,11 +58,11 @@ internal class LoginVM : BaseVM
 
     private void ExecuteLoginCommand(object? obj)
     {
-        if (Username == "user" && PasswordString == "user")
+        if (UsernameString == "user" && PasswordString == "user")
         {
 
             string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\LogFile.txt";
-            File.AppendAllText(path, $"Log : {Username} logged in Time : {DateTime.Now.ToString("G")}\n");
+            File.AppendAllText(path, $"Log : {UsernameString} logged in Time : {DateTime.Now.ToString("G")}\n");
             NavigationStore _navigationStore = new();
             _navigationStore.CurrentVM = new TableVM(_navigationStore);
             MainView mainView = new MainView()
@@ -74,7 +74,7 @@ internal class LoginVM : BaseVM
 
             window?.Close();
         }
-        else if (Username == "admin" && PasswordString == "admin")
+        else if (UsernameString == "admin" && PasswordString == "admin")
         {
             string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\LogFile.txt";
             File.AppendAllText(path, $"Log : Admin logged in Time : {DateTime.Now.ToString("G")}\n");

@@ -37,7 +37,7 @@
 
             <TextBox x:Name="Username" Grid.Row="1" Style="{StaticResource txtStyle}"/>
 
-            <PasswordBox x:Name="Password" Grid.Row="2" Style="{StaticResource pswdStyle}" PasswordChanged="Password_PasswordChanged"/>
+            <TextBox x:Name="Password" Grid.Row="2" Style="{StaticResource txtStyle}"/>
 
             <Grid Grid.Row="3" Margin="0,20">
 

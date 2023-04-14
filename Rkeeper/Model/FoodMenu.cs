@@ -20,6 +20,12 @@ class FoodMenu
         JsonToMenu();
     }
 
+    public void AddFood(Food food)
+    {
+        MenuFoods.Add(food);
+        MenuToJson();
+    }
+
     public void MenuToJson()
     {
         string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\Menu.json";

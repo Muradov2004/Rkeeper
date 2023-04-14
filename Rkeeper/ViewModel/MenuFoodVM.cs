@@ -6,18 +6,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
+using System.Security.Policy;
+using System.Collections.ObjectModel;
 
 namespace Rkeeper.ViewModel;
 
 internal class MenuFoodVM : BaseVM
 {
 
-    private string _foodName;
-    private string _imageLocation;
-    private string _price;
-    private string _count;
+    private string? _foodName;
+    private string? _imageLocation;
+    private string? _price;
+    private string? _count;
 
-    public string FoodName
+    public string? FoodName
     {
         get => _foodName;
         set
@@ -30,7 +33,7 @@ internal class MenuFoodVM : BaseVM
         }
     }
 
-    public string ImageLocation
+    public string? ImageLocation
     {
         get => _imageLocation;
         set
@@ -43,7 +46,7 @@ internal class MenuFoodVM : BaseVM
         }
     }
 
-    public string Price
+    public string? Price
     {
         get => _price;
         set
@@ -56,7 +59,7 @@ internal class MenuFoodVM : BaseVM
         }
     }
 
-    public string Count
+    public string? Count
     {
         get => _count;
         set
@@ -71,7 +74,8 @@ internal class MenuFoodVM : BaseVM
 
     private readonly NavigationStore _navigation;
 
-    public List<Food> MenuFood { get; set; }
+    public ObservableCollection<Food> MenuFood { get; set; }
+    private FoodMenu Menu = new();
 
     public ICommand? AddCommand { get; set; }
     public ICommand? BackCommand { get; set; }
@@ -80,7 +84,7 @@ internal class MenuFoodVM : BaseVM
     public MenuFoodVM(NavigationStore navigation)
     {
         _navigation = navigation;
-        MenuFood = new FoodMenu().MenuFoods.ToList();
+        MenuFood = Menu.MenuFoods;
         AddCommand = new RelayCommand(ExecuteAddCommand, CanExecuteAddCommand);
         BackCommand = new RelayCommand(ExecuteBackCommand);
         RemoveMenuCommand = new RelayCommand(ExecuteRemoveMenuCommand);
@@ -93,28 +97,27 @@ internal class MenuFoodVM : BaseVM
 
     private bool CanExecuteAddCommand(object? obj)
     {
-        return !(string.IsNullOrEmpty(_foodName) || string.IsNullOrEmpty(_imageLocation) || string.IsNullOrEmpty(_price) || !IsImage(_imageLocation) || string.IsNullOrEmpty(_count) || !double.TryParse(_price,out _) || !int.TryParse(_count, out _));
+        return !(string.IsNullOrEmpty(_foodName) || string.IsNullOrEmpty(_imageLocation) || string.IsNullOrEmpty(_price) || !IsImageLink(_imageLocation) || string.IsNullOrEmpty(_count) || !double.TryParse(_price, out _) || !int.TryParse(_count, out _));
     }
 
     private void ExecuteAddCommand(object? obj)
     {
 
-        string imageName = Path.GetFileName(_imageLocation);
-        string destinationPath = AppDomain.CurrentDomain.BaseDirectory[..^25];
-        string targetFilePath = Path.Combine(destinationPath, "Assets", "MenuImages", imageName);
-        File.Copy(_imageLocation, targetFilePath, true);
+        Food food = new(FoodName, Convert.ToDouble(Price), ImageLocation, Convert.ToInt32(Count));
+        Menu.AddFood(food);
 
     }
 
     private void ExecuteRemoveMenuCommand(object? obj)
     {
+
+
+
     }
 
-    private bool IsImage(string filename)
+    private bool IsImageLink(string ImageUrl)
     {
-        return filename.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               filename.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               filename.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-               filename.EndsWith(".bmp", StringComparison.OrdinalIgnoreCase);
+        Regex regex = new Regex(@"\b(?:https?://|www\.)\S+\.(?:jpg|jpeg|gif|png)\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        return regex.IsMatch(ImageUrl);
     }
 }

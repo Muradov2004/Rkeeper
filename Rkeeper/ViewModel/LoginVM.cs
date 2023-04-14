@@ -2,11 +2,7 @@
 using Rkeeper.View;
 using Rkeeper.ViewModel.Command;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,9 +12,9 @@ internal class LoginVM : BaseVM
 {
     private NavigationStore _navigation;
 
-    private string _username;
+    private string? _username;
 
-    public string UsernameString
+    public string? UsernameString
     {
         get => _username;
         set
@@ -31,9 +27,9 @@ internal class LoginVM : BaseVM
         }
     }
 
-    private string _password;
+    private string? _password;
 
-    public string PasswordString
+    public string? PasswordString
     {
         get => _password;
         set
@@ -53,8 +49,10 @@ internal class LoginVM : BaseVM
     {
         _navigation = navigation;
         NavigateRegisterCommand = new RelayCommand(ExecuteNavigateRegisterCommand);
-        LoginCommand = new RelayCommand(ExecuteLoginCommand);
+        LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
     }
+
+    private bool CanExecuteLoginCommand(object? obj) => !(string.IsNullOrEmpty(_username) || string.IsNullOrEmpty(_password));
 
     private void ExecuteLoginCommand(object? obj)
     {

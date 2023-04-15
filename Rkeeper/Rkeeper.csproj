@@ -21,6 +21,7 @@
     <None Remove="Assets\MenuImages\PepperoniPizza.jpg" />
     <None Remove="Assets\MenuImages\SpaghettiBolognese.jpg" />
     <None Remove="Assets\MenuImages\SushiRoll.jpg" />
+    <None Remove="Assets\password.ttf" />
     <None Remove="Assets\rkeeper.ico" />
   </ItemGroup>
 
@@ -45,6 +46,7 @@
     <Resource Include="Assets\MenuImages\PepperoniPizza.jpg" />
     <Resource Include="Assets\MenuImages\SpaghettiBolognese.jpg" />
     <Resource Include="Assets\MenuImages\SushiRoll.jpg" />
+    <Resource Include="Assets\Fonts\password.ttf" />
   </ItemGroup>
 
 </Project>

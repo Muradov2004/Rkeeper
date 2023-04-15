@@ -35,9 +35,9 @@
 
             <TextBlock Text="REGISTER" Foreground="#484bf2" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
 
-            <TextBox x:Name="Username" Grid.Row="1" Style="{StaticResource txtStyle}"/>
+            <TextBox x:Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtStyle}"/>
 
-            <TextBox x:Name="Password" Grid.Row="2" Style="{StaticResource txtStyle}"/>
+            <TextBox x:Name="Password" Grid.Row="2" Text="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource pswdStyle}"/>
 
             <Grid Grid.Row="3" Margin="0,20">
 
@@ -57,7 +57,7 @@
                 </Button>
 
             </Grid>
-            <Button Grid.Row="4" Background="#484bf2" Style="{StaticResource LoginRegisterBtnStyle}" Content="Register"/>
+            <Button Grid.Row="4" Background="#484bf2" Style="{StaticResource LoginRegisterBtnStyle}" Content="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
         </Grid>
 
     </Grid>

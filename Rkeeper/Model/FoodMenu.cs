@@ -22,6 +22,7 @@ class FoodMenu
 
     public void AddFood(Food food)
     {
+        if
         MenuFoods.Add(food);
         MenuToJson();
     }
@@ -36,13 +37,12 @@ class FoodMenu
 
     public void JsonToMenu()
     {
+
         MenuFoods.Clear();
         string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\Menu.json";
         string MenuJson = File.ReadAllText(path);
         foreach (var item in JsonConvert.DeserializeObject<ObservableCollection<Food>>(MenuJson))
-        {
             MenuFoods.Add(item);
-        }
 
     }
 }

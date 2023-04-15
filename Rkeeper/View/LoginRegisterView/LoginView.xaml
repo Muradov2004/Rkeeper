@@ -37,7 +37,7 @@
 
             <TextBox Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtStyle}"/>
 
-            <TextBox Name="Password" Grid.Row="2" Text="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtStyle}"/>
+            <TextBox Name="Password" Grid.Row="2" Text="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource pswdStyle}"/>
 
             <Grid Grid.Row="3" Margin="0,20">
 

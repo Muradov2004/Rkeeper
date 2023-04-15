@@ -19,7 +19,7 @@ class TableVM : BaseVM
 {
     private bool IsListActive = false;
 
-    public string Username { get; set; } = "salam";
+    public string Username { get; set; } = "";
  
     private string _time;
     public string Time

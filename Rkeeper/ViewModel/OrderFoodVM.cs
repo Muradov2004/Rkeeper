@@ -89,20 +89,10 @@ class OrderFoodVM : BaseVM
 
     private void AddNewOrderToJson()
     {
-        Dictionary<string, ObservableCollection<Food>>? TableOrderedFood = new();
-        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\TableOrderFood.json";
-        string TableOrderedFoodJson = File.ReadAllText(path);
-        TableOrderedFood = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Food>>>(TableOrderedFoodJson);
-        foreach (var key in TableOrderedFood.Keys)
-        {
-            if (key == TableName)
-            {
-                TableOrderedFood[key].Clear();
-                foreach (var item in OrderedFood)
-                    TableOrderedFood[key].Add(item);
-            }
-        }
-        string json = JsonConvert.SerializeObject(TableOrderedFood, Formatting.Indented);
-        File.WriteAllText(path, json);
+        TableCollection TableCollection = new();
+        TableCollection.Tables.FirstOrDefault(t => t.Name == TableName).OrderedFood.Clear();
+        foreach (var item in OrderedFood)
+            TableCollection.Tables.FirstOrDefault(t => t.Name == TableName).OrderedFood.Add(item);
+        TableCollection.TablesToJson();
     }
 }

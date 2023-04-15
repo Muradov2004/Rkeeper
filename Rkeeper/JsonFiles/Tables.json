@@ -1,0 +1,51 @@
+[
+  {
+    "Name": "Table1",
+    "NumberOfChairs": 5,
+    "ShapeOfTable": 0,
+    "OrderedFood": [
+      {
+        "Name": "Chicken Burger",
+        "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/ChickenBurger.jpg",
+        "Price": 8.99,
+        "Count": 1
+      },
+      {
+        "Name": "Caesar Salad",
+        "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/CaesarSalad.jpg",
+        "Price": 10.5,
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Name": "Table2",
+    "NumberOfChairs": 6,
+    "ShapeOfTable": 0,
+    "OrderedFood": []
+  },
+  {
+    "Name": "Table3",
+    "NumberOfChairs": 2,
+    "ShapeOfTable": 2,
+    "OrderedFood": []
+  },
+  {
+    "Name": "Table4",
+    "NumberOfChairs": 4,
+    "ShapeOfTable": 2,
+    "OrderedFood": []
+  },
+  {
+    "Name": "Table5",
+    "NumberOfChairs": 4,
+    "ShapeOfTable": 1,
+    "OrderedFood": []
+  },
+  {
+    "Name": "Table6",
+    "NumberOfChairs": 3,
+    "ShapeOfTable": 1,
+    "OrderedFood": []
+  }
+]

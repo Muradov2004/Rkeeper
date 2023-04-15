@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Security.Policy;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Rkeeper.ViewModel;
 
@@ -16,9 +17,6 @@ internal class MenuFoodVM : BaseVM
 {
 
     private string? _foodName;
-    private string? _imageLocation;
-    private string? _price;
-    private string? _count;
 
     public string? FoodName
     {
@@ -33,6 +31,8 @@ internal class MenuFoodVM : BaseVM
         }
     }
 
+    private string? _imageLocation;
+
     public string? ImageLocation
     {
         get => _imageLocation;
@@ -46,6 +46,8 @@ internal class MenuFoodVM : BaseVM
         }
     }
 
+    private string? _price;
+
     public string? Price
     {
         get => _price;
@@ -58,6 +60,8 @@ internal class MenuFoodVM : BaseVM
             }
         }
     }
+
+    private string? _count;
 
     public string? Count
     {
@@ -105,14 +109,17 @@ internal class MenuFoodVM : BaseVM
 
         Food food = new(FoodName, Convert.ToDouble(Price), ImageLocation, Convert.ToInt32(Count));
         Menu.AddFood(food);
+        FoodName = "";
+        Price = "";
+        ImageLocation = "";
+        Count = "";
 
     }
 
     private void ExecuteRemoveMenuCommand(object? obj)
     {
 
-
-
+        Menu.RemoveFood(obj.ToString());
 
     }
 

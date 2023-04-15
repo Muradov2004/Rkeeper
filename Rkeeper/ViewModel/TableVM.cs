@@ -2,16 +2,13 @@
 using Rkeeper.ViewModel.Command;
 using Rkeeper.View.MainWindowComponentsView;
 using System;
-using System.Collections.Generic;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using Rkeeper.Model;
-using System.Windows.Controls;
-using Newtonsoft.Json;
-using System.IO;
 using System.Windows.Threading;
 using System.Windows;
 using Rkeeper.View.LoginRegisterView;
+using System.Linq;
 
 namespace Rkeeper.ViewModel;
 
@@ -20,7 +17,7 @@ class TableVM : BaseVM
     private bool IsListActive = false;
 
     public string Username { get; set; } = "";
- 
+
     private string _time;
     public string Time
     {
@@ -31,9 +28,11 @@ class TableVM : BaseVM
             NotifyPropertyChanged(nameof(Time));
         }
     }
-    public Dictionary<string, ObservableCollection<Food>>? TableOrderedFood { get; set; } = new();
 
-    public ObservableCollection<Food> OrderedFood { get; set; }
+    public TableCollection TableCollection { get; set; } = new();
+
+    public ObservableCollection<Food> OrderedFood { get; set; } = new();
+
     public string? SelectedTableName { get; set; }
 
     private readonly NavigationStore _navigation;
@@ -45,14 +44,14 @@ class TableVM : BaseVM
 
     public TableVM(NavigationStore navigation)
     {
+
         _navigation = navigation;
-        JsonToTableOrderedFood();
         SetClock();
-        OrderedFood = new();
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
         AddOrderCommand = new RelayCommand(ExecuteAddOrderCommand, CanExecuteAddOrderCommand);
         LogoutCommand = new RelayCommand(ExecuteLogoutCommand);
+
     }
 
     private void ExecuteLogoutCommand(object? obj)
@@ -91,7 +90,7 @@ class TableVM : BaseVM
     private void ExecuteAddOrderCommand(object? obj)
     {
         ObservableCollection<Food> SeperatedFood = new();
-        foreach (Food food in OrderedFood)
+        foreach (Food food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
         {
             int count = food.Count;
             for (int i = 0; i < count; i++)
@@ -109,7 +108,7 @@ class TableVM : BaseVM
     {
         ObservableCollection<Food> TotalOrderedFood = new();
         double totalprice = 0;
-        foreach (var item in OrderedFood)
+        foreach (var item in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
         {
             TotalOrderedFood.Add(item);
             totalprice += item.Price * item.Count;
@@ -121,18 +120,10 @@ class TableVM : BaseVM
     private void ExecuteTableCommand(object? obj)
     {
         IsListActive = true;
-        Button? button = obj as Button;
         OrderedFood.Clear();
-        SelectedTableName = button?.Name;
-        foreach (var food in TableOrderedFood[$"{button?.Name}"])
+        SelectedTableName = obj.ToString();
+        foreach (var food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
             OrderedFood.Add(food);
     }
 
-    private void JsonToTableOrderedFood()
-    {
-        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"JsonFiles\TableOrderFood.json";
-        string TableOrderedFoodJson = File.ReadAllText(path);
-        TableOrderedFood?.Clear();
-        TableOrderedFood = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Food>>>(TableOrderedFoodJson);
-    }
 }

@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Shapes;
 
 namespace Rkeeper.Model;
@@ -20,11 +22,30 @@ class FoodMenu
         JsonToMenu();
     }
 
+    public void RemoveFood(string FoodName)
+    {
+
+        MenuFoods.Remove(MenuFoods.FirstOrDefault(f => f.Name == FoodName));
+        MenuToJson();
+    
+    }
+
     public void AddFood(Food food)
     {
-        if
-        MenuFoods.Add(food);
-        MenuToJson();
+        bool condition = false;
+        foreach (var item in MenuFoods)
+            if (food.Name == item.Name)
+            {
+                condition = true;
+                break;
+            }
+        if (condition)
+            MessageBox.Show("Food exist", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        else
+        {
+            MenuFoods.Add(food);
+            MenuToJson();
+        }
     }
 
     public void MenuToJson()

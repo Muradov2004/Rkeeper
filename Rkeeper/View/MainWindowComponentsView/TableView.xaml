@@ -44,7 +44,7 @@
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
@@ -53,27 +53,34 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Username}"/>
-                <TextBlock Grid.Column="1" Text="{Binding Time}" HorizontalAlignment="Right"/>
-                <Button Grid.Column="2" Margin="20,2" Content="Logout" FontSize="18" FontWeight="Black" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+                <TextBlock Grid.Column="0" Text="{Binding Username}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold"/>
+                <Button Grid.Column="2" Margin="20,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
             </Grid>
             <ScrollViewer Grid.Row="1">
-                <WrapPanel HorizontalAlignment="Center">
-                    <WrapPanel.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Width" Value="200"/>
-                            <Setter Property="Height" Value="150"/>
-                            <Setter Property="Margin" Value="20,10"/>
-                            <Setter Property="FontSize" Value="25"/>
-                        </Style>
-                    </WrapPanel.Resources>
-                    <Button Name="Table1"  Content="{Binding ElementName=Table1 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table1}"/>
-                    <Button Name="Table2"  Content="{Binding ElementName=Table2 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table2}"/>
-                    <Button Name="Table3"  Content="{Binding ElementName=Table3 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table3}"/>
-                    <Button Name="Table4"  Content="{Binding ElementName=Table4 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table4}"/>
-                    <Button Name="Table5"  Content="{Binding ElementName=Table5 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table5}"/>
-                    <Button Name="Table6"  Content="{Binding ElementName=Table6 ,Path=Name}" Command="{Binding TableCommand}" CommandParameter="{Binding ElementName=Table6}"/>
-                </WrapPanel>
+                <ItemsControl ItemsSource="{Binding TableCollection.Tables}" HorizontalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel>
+                                <WrapPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Width" Value="200"/>
+                                        <Setter Property="Height" Value="150"/>
+                                        <Setter Property="Margin" Value="20,10"/>
+                                        <Setter Property="FontSize" Value="25"/>
+                                    </Style>
+                                </WrapPanel.Resources>
+                            </WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ScrollViewer>
         </Grid>
     </Grid>

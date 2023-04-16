@@ -4,14 +4,9 @@ using Rkeeper.Stores;
 using Rkeeper.View.LoginRegisterView;
 using Rkeeper.ViewModel.Command;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Rkeeper.ViewModel;
 
@@ -40,8 +35,10 @@ internal class AdminVM : BaseVM
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\History.pdf";
         Document doc = new Document();
         PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+        string txtPath = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\History.txt";
+        string history = File.ReadAllText(txtPath);
         doc.Open();
-        Paragraph paragraph = new Paragraph("salam");
+        Paragraph paragraph = new Paragraph(history);
         doc.Add(paragraph);
         doc.Close();
     }

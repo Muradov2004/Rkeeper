@@ -13,8 +13,8 @@
         <Setter Property="MinWidth" Value="800"/>
         
         <Setter Property="MinHeight" Value="500"/>
-        
-        <Setter Property="Background" Value="WhiteSmoke"/>
+
+        <Setter Property="Background" Value="#F0E8E0"/>
 
     </Style>
 

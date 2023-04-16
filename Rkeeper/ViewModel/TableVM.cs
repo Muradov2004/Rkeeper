@@ -97,7 +97,7 @@ class TableVM : BaseVM
                 SeperatedFood.Add(food);
             }
         }
-        _navigation.CurrentVM = new OrderFoodVM(_navigation) { OrderedFood = SeperatedFood, TableName = SelectedTableName };
+        _navigation.CurrentVM = new OrderFoodVM(_navigation) { OrderedFood = SeperatedFood, TableName = SelectedTableName, username = Username };
     }
 
     private bool CanExecuteBillCommand(object? obj) => IsListActive && (OrderedFood.Count != 0);
@@ -112,7 +112,7 @@ class TableVM : BaseVM
             totalprice += item.Price * item.Count;
         }
         TotalOrderedFood.Add(new Food { Name = "Total", Price = Math.Round(totalprice, 2) });
-        _navigation.CurrentVM = new BillVM(_navigation) { OrderedFood = TotalOrderedFood, TableName = SelectedTableName };
+        _navigation.CurrentVM = new BillVM(_navigation) { OrderedFood = TotalOrderedFood, TableName = SelectedTableName, username = Username };
     }
 
     private void ExecuteTableCommand(object? obj)

@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
              mc:Ignorable="d" 
              Margin="20,10,0,0"
+             Style="{StaticResource UserControlStyle}"
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
 
@@ -64,10 +65,7 @@
                             <WrapPanel>
                                 <WrapPanel.Resources>
                                     <Style TargetType="Button">
-                                        <Setter Property="Width" Value="200"/>
-                                        <Setter Property="Height" Value="150"/>
-                                        <Setter Property="Margin" Value="20,10"/>
-                                        <Setter Property="FontSize" Value="25"/>
+
                                     </Style>
                                 </WrapPanel.Resources>
                             </WrapPanel>
@@ -75,8 +73,8 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table"/>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table" Background="#F46315" Style="{StaticResource TableStyle}"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

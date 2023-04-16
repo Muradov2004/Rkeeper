@@ -14,6 +14,8 @@
                 
                 <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
 
+                <ResourceDictionary Source="Styles/TableStyle.xaml"/>
+
                 <ResourceDictionary Source="Styles/UserControlStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/TxtBoxStyle.xaml"/>

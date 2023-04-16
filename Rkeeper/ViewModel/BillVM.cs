@@ -11,6 +11,8 @@ class BillVM : BaseVM
 {
     public ObservableCollection<Food> OrderedFood { get; set; } = new();
 
+    public string? username;
+
     public string? TableName;
 
     private readonly NavigationStore _navigation;
@@ -31,13 +33,17 @@ class BillVM : BaseVM
 
     private void ExecuteCloseTableCommand(object? obj)
     {
-        TableCollection tableCollection = new();
-        tableCollection.Tables.FirstOrDefault(t => t.Name == TableName).OrderedFood.Clear();
+        TableCollection? tableCollection = new();
+        tableCollection.Tables?.FirstOrDefault(t => t.Name == TableName)?.OrderedFood.Clear();
         tableCollection.TablesToJson();
-        _navigation.CurrentVM = new TableVM(_navigation);
+
+        _navigation.CurrentVM = new TableVM(_navigation) { Username = username };
+
     }
+
     private void ExecuteBackCommand(object? obj)
     {
-        _navigation.CurrentVM = new TableVM(_navigation);
+        _navigation.CurrentVM = new TableVM(_navigation) { Username = username };
     }
+
 }

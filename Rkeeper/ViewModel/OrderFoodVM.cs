@@ -1,8 +1,10 @@
 ﻿using Rkeeper.Model;
 using Rkeeper.Stores;
 using Rkeeper.ViewModel.Command;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
@@ -11,6 +13,7 @@ namespace Rkeeper.ViewModel;
 class OrderFoodVM : BaseVM
 {
     public ObservableCollection<Food> OrderedFood { get; set; } = new();
+    public string username;
     public string? TableName { get; set; }
     public List<Food> MenuFood { get; set; }
 
@@ -34,26 +37,27 @@ class OrderFoodVM : BaseVM
 
         Food? foodToRemove = OrderedFood.FirstOrDefault(f => f.Name == obj?.ToString());
         OrderedFood.Remove(foodToRemove);
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\History.txt";
+        File.AppendAllText(path, $"{username} removed {foodToRemove.Name} from {TableName} [{DateTime.Now.ToString("G")}]\n");
 
     }
 
     private void ExecuteAddListCommand(object? obj)
     {
-        foreach (var food in MenuFood)
-        {
-            if (food.Name == obj?.ToString())
-            {
-                OrderedFood.Add(food);
-                break;
-            }
-        }
+        string path = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\History.txt";
+        if (OrderedFood.Count == 0)
+            File.AppendAllText(path, $"{username} opened {TableName} [{DateTime.Now.ToString("G")}]\n");
+
+        Food? food = MenuFood.FirstOrDefault(f => f.Name == obj?.ToString());
+        OrderedFood.Add(food);
+        File.AppendAllText(path, $"{username} added {food.Name} from {TableName} [{DateTime.Now.ToString("G")}]\n");
     }
 
     private void ExecuteDoneCommand(object? obj)
     {
         CombineOrder();
         AddNewOrderToJson();
-        _navigation.CurrentVM = new TableVM(_navigation);
+        _navigation.CurrentVM = new TableVM(_navigation) { Username = username };
     }
 
     private string GetImageSource(string foodName)

@@ -32,7 +32,6 @@ class TableVM : BaseVM
     public TableCollection TableCollection { get; set; } = new();
 
     public ObservableCollection<Food> OrderedFood { get; set; } = new();
-
     public string? SelectedTableName { get; set; }
 
     private readonly NavigationStore _navigation;

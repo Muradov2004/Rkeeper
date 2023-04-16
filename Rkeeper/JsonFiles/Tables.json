@@ -3,20 +3,7 @@
     "Name": "Table1",
     "NumberOfChairs": 5,
     "ShapeOfTable": 0,
-    "OrderedFood": [
-      {
-        "Name": "Chicken Burger",
-        "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/ChickenBurger.jpg",
-        "Price": 8.99,
-        "Count": 1
-      },
-      {
-        "Name": "Caesar Salad",
-        "ImageSource": "pack://application:,,,/Rkeeper;component/Assets/MenuImages/CaesarSalad.jpg",
-        "Price": 10.5,
-        "Count": 1
-      }
-    ]
+    "OrderedFood": []
   },
   {
     "Name": "Table2",

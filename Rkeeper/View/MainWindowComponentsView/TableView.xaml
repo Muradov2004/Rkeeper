@@ -76,7 +76,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
+                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

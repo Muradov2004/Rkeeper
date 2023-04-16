@@ -1,6 +1,5 @@
 ﻿using Rkeeper.Stores;
 using Rkeeper.ViewModel.Command;
-using Rkeeper.View.MainWindowComponentsView;
 using System;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
@@ -18,8 +17,8 @@ class TableVM : BaseVM
 
     public string Username { get; set; } = "";
 
-    private string _time;
-    public string Time
+    private string? _time;
+    public string? Time
     {
         get { return _time; }
         set
@@ -101,7 +100,7 @@ class TableVM : BaseVM
         _navigation.CurrentVM = new OrderFoodVM(_navigation) { OrderedFood = SeperatedFood, TableName = SelectedTableName };
     }
 
-    private bool CanExecuteBillCommand(object? obj) => IsListActive;
+    private bool CanExecuteBillCommand(object? obj) => IsListActive && (OrderedFood.Count != 0);
 
     private void ExecuteBillCommand(object? obj)
     {

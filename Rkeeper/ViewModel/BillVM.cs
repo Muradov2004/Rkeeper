@@ -1,11 +1,7 @@
-﻿using Newtonsoft.Json;
-using Rkeeper.Model;
+﻿using Rkeeper.Model;
 using Rkeeper.Stores;
 using Rkeeper.ViewModel.Command;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
 

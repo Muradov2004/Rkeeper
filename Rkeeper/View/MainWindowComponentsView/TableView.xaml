@@ -4,82 +4,128 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
-             mc:Ignorable="d" 
-             Margin="20,10,0,0"
+             mc:Ignorable="d"
              Style="{StaticResource UserControlStyle}"
              d:DesignHeight="550" d:DesignWidth="800">
+
     <Grid>
 
         <Grid.ColumnDefinitions>
+
             <ColumnDefinition/>
             <ColumnDefinition  Width="2*"/>
+
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="LightGray">
+        <Grid Grid.Column="0" Background="#474D4E">
+
             <Grid.RowDefinitions>
+
                 <RowDefinition Height="5*"/>
                 <RowDefinition/>
+
             </Grid.RowDefinitions>
-            <Grid Margin="8,15,8,0" Background="WhiteSmoke">
+
+            <Grid Margin="8,15,8,0" Background="#F0E8E0">
+
                 <Grid.RowDefinitions>
+
                     <RowDefinition Height="8*"/>
                     <RowDefinition/>
+
                 </Grid.RowDefinitions>
+
                 <Grid Name="OrderGrid">
+
                     <ListView ItemsSource="{Binding OrderedFood}" FontSize="20" SelectionMode="Single">
+
                         <ListView.View>
+
                             <GridView>
+
                                 <GridView.Columns>
+
                                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="90"/>
                                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="auto"/>
                                     <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="auto"/>
+
                                 </GridView.Columns>
+
                             </GridView>
+
                         </ListView.View>
+
                     </ListView>
+
                 </Grid>
-                <Button Grid.Row="1" Margin="15,8" FontWeight="Bold" FontSize="17" Content="A d d  O r d e r" Command="{Binding AddOrderCommand}"/>
+
+                <Button Grid.Row="1" Margin="15,0" FontSize="17" Height="30" Content="A d d  O r d e r" FontWeight="DemiBold" Background="#F46315" Padding="0" Command="{Binding AddOrderCommand}" Style="{StaticResource TableStyle}"/>
+
             </Grid>
-            <Button Grid.Row="1" Margin="20,10" FontSize="28" Height="50" Content="B i l l" FontWeight="Bold" Command="{Binding BillCommand}"/>
+
+            <Button Grid.Row="1" Margin="20,0" FontSize="35" Height="50" Content="B i l l" FontWeight="DemiBold" Background="#F46315" Command="{Binding BillCommand}" Style="{StaticResource TableStyle}"/>
 
         </Grid>
+
         <Grid Grid.Column="1">
+
             <Grid.RowDefinitions>
+
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
+
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
+
                 <Grid.ColumnDefinitions>
+
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Username}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold"/>
-                <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold"/>
-                <Button Grid.Column="2" Margin="20,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
-            </Grid>
-            <ScrollViewer Grid.Row="1">
-                <ItemsControl ItemsSource="{Binding TableCollection.Tables}" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel>
-                                <WrapPanel.Resources>
-                                    <Style TargetType="Button">
 
-                                    </Style>
-                                </WrapPanel.Resources>
-                            </WrapPanel>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="{Binding Username}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold"/>
+
+                <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold"/>
+
+                <Button Grid.Column="2" Margin="20,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+
+            </Grid>
+
+            <ScrollViewer Grid.Row="1">
+
+                <ItemsControl ItemsSource="{Binding TableCollection.Tables}" HorizontalAlignment="Center">
+
+                    <ItemsControl.ItemsPanel>
+
+                        <ItemsPanelTemplate>
+
+                            <WrapPanel/>
+
                         </ItemsPanelTemplate>
+
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
+
                         <DataTemplate>
+
                             <Grid Margin="0,20,0,0">
+
                                 <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table" Background="#F46315" Style="{StaticResource TableStyle}"/>
+
                             </Grid>
+
                         </DataTemplate>
+
                     </ItemsControl.ItemTemplate>
+
                 </ItemsControl>
+
             </ScrollViewer>
+
         </Grid>
+
     </Grid>
+
 </UserControl>

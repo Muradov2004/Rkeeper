@@ -5,31 +5,31 @@
              StartupUri="View/OpeningLoadingView/OpeningWindow.xaml">
 
     <Application.Resources>
-        
+
         <ResourceDictionary>
-            
+
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary Source="Resources/ApplicationResources.xaml"/>
-                
-                <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
 
-                <ResourceDictionary Source="Styles/TableStyle.xaml"/>
-
-                <ResourceDictionary Source="Styles/UserControlStyle.xaml"/>
+                <ResourceDictionary Source="Styles/TableViewStyles/TableStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/TxtBoxStyle.xaml"/>
-                
+
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/PswdBoxStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/LoginRegisterButtonStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/AdditionalBtnStyleLoginRegister.xaml"/>
-                
+
+                <ResourceDictionary Source="Styles/UserControlStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
-        
+
         </ResourceDictionary>
-        
+
     </Application.Resources>
 
 </Application>

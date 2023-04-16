@@ -97,7 +97,7 @@
 
                                 <Setter.Value>
 
-                                    <DropShadowEffect Color="LightSalmon" ShadowDepth="5" BlurRadius="5" Opacity="0.8"/>
+                                    <DropShadowEffect Color="{StaticResource DropEffecColor}" ShadowDepth="5" BlurRadius="5" Opacity="0.8"/>
 
                                 </Setter.Value>
 
@@ -156,7 +156,7 @@
 
                                 <Setter.Value>
 
-                                    <DropShadowEffect Color="{StaticResource BorderColor}" ShadowDepth="10" BlurRadius="10" Opacity="0.8"/>
+                                    <DropShadowEffect Color="{StaticResource DropEffecColor}" ShadowDepth="10" BlurRadius="10" Opacity="0.8"/>
 
                                 </Setter.Value>
 

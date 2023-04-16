@@ -33,7 +33,7 @@
 
             </Grid.RowDefinitions>
 
-            <TextBlock Text="LOGIN" Foreground="LightSalmon" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
+            <TextBlock Text="LOGIN" Foreground="#F46315" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
 
             <TextBox Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtStyle}"/>
 
@@ -58,7 +58,7 @@
 
             </Grid>
 
-            <Button Name="LoginBtn" Grid.Row="4" Background="LightSalmon" Style="{StaticResource LoginRegisterBtnStyle}" Content="Login" Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+            <Button Name="LoginBtn" Grid.Row="4" Background="#F46315" Style="{StaticResource LoginRegisterBtnStyle}" Content="Login" Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
         </Grid>
 
     </Grid>

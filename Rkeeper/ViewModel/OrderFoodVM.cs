@@ -49,7 +49,7 @@ class OrderFoodVM : BaseVM
             File.AppendAllText(path, $"{username} opened {TableName} [{DateTime.Now.ToString("G")}]\n");
 
         Food? food = MenuFood.FirstOrDefault(f => f.Name == obj?.ToString());
-        OrderedFood.Add(food);
+        OrderedFood.Insert(0, food);
         File.AppendAllText(path, $"{username} added {food.Name} from {TableName} [{DateTime.Now.ToString("G")}]\n");
     }
 

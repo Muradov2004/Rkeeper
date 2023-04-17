@@ -141,6 +141,7 @@
                                 <Button Grid.Column="4" Content="Order" Height="50" Width="80" Padding="0,0,0,4" FontSize="23" FontWeight="Bold" Background="#F46315" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource TableStyle}"/>
 
                             </Grid>
+
                         </Border>
 
                     </DataTemplate>
@@ -151,41 +152,61 @@
 
         </ScrollViewer>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Grid.Row="2">
+        <Border Grid.Row="2" CornerRadius="10" Background="White" Margin="5,3,5,0">
 
-            <ItemsControl ItemsSource="{Binding OrderedFood}" >
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
 
-                <ItemsControl.ItemsPanel>
+                <ItemsControl ItemsSource="{Binding OrderedFood}" >
 
-                    <ItemsPanelTemplate>
+                    <ItemsControl.ItemsPanel>
 
-                        <StackPanel Orientation="Horizontal"/>
+                        <ItemsPanelTemplate>
 
-                    </ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
 
-                </ItemsControl.ItemsPanel>
+                        </ItemsPanelTemplate>
 
-                <ItemsControl.ItemTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                    <DataTemplate>
+                    <ItemsControl.ItemTemplate>
 
-                        <Grid Margin="4,5,4,0" Style="{StaticResource GridStyle}">
+                        <DataTemplate>
 
-                            <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5,15,5,2"/>
+                            <Grid Margin="4,5,4,0" Style="{StaticResource GridStyle}">
 
-                            <TextBlock Text="{Binding Name}" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="100" Height="100" Margin="5,15,5,2" ToolTip="{Binding Name}">
 
-                            <Button Width="14" Height="14" Content="x" HorizontalAlignment="Right"  VerticalAlignment="Top" Padding="-1" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
+                                    <Border.Background>
 
-                        </Grid>
+                                        <VisualBrush Stretch="UniformToFill">
 
-                    </DataTemplate>
+                                            <VisualBrush.Visual>
 
-                </ItemsControl.ItemTemplate>
+                                                <Image Source="{Binding ImageSource}"/>
 
-            </ItemsControl>
+                                            </VisualBrush.Visual>
 
-        </ScrollViewer>
+                                        </VisualBrush>
+
+                                    </Border.Background>
+
+                                </Border>
+
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+
+                                <Button Content="X" Background="#FF1B1B" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource RemoveBtnStyle}"/>
+
+                            </Grid>
+
+                        </DataTemplate>
+
+                    </ItemsControl.ItemTemplate>
+
+                </ItemsControl>
+
+            </ScrollViewer>
+
+        </Border>
 
     </Grid>
 

@@ -12,6 +12,10 @@
 
                 <ResourceDictionary Source="Resources/ApplicationResources.xaml"/>
 
+                <ResourceDictionary Source="Styles/UserViewStyles/OrderedFoodListElementStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/UserViewStyles/RemoveBtnStyle.xaml"/>
+
                 <ResourceDictionary Source="Styles/UserViewStyles/TableStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/TxtBoxStyle.xaml"/>

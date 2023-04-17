@@ -6,72 +6,186 @@
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800">
+
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+
+            <RowDefinition Height="40"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="auto"/>
+
         </Grid.RowDefinitions>
+
+        <Rectangle>
+
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#0A0A0A"/>
+            </Rectangle.Fill>
+
+        </Rectangle>
+
         <Grid Width="700" VerticalAlignment="Center">
+
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="150"/>
+
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="{Binding TableName}" FontSize="18"/>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="Food Name" FontSize="18"/>
-            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Price" FontSize="18"/>
-            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="Count"  FontSize="18"/>
-            <Button Grid.Column="4" HorizontalAlignment="Right" Content="Done" FontSize="18" Command="{Binding DoneCommand}"/>
+
+            <Grid.Resources>
+
+                <Style TargetType="TextBlock">
+
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+
+                    <Setter Property="FontSize" Value="18"/>
+
+                    <Setter Property="Foreground" Value="#F0E8E0"/>
+
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+
+                </Style>
+
+            </Grid.Resources>
+
+            <TextBlock Grid.Column="0" Text="{Binding TableName}"/>
+
+            <TextBlock Grid.Column="1" Text="Food Name"/>
+
+            <TextBlock Grid.Column="2" Text="Price"/>
+
+            <TextBlock Grid.Column="3" Text="Count"/>
+
+            <Button Grid.Column="4" HorizontalAlignment="Right" Content="Done" FontSize="18" Height="28" Width="60" Margin="0" Padding="0,0,0,4" Background="#F46315" FontWeight="DemiBold" Command="{Binding DoneCommand}" Style="{StaticResource TableStyle}"/>
+
         </Grid>
 
         <ScrollViewer Grid.Row="1">
+
             <ItemsControl ItemsSource="{Binding MenuFood}" HorizontalAlignment="Center">
+
                 <ItemsControl.ItemsPanel>
+
                     <ItemsPanelTemplate>
+
                         <StackPanel/>
+
                     </ItemsPanelTemplate>
+
                 </ItemsControl.ItemsPanel>
+
                 <ItemsControl.ItemTemplate>
+
                     <DataTemplate>
-                        <Grid Height="auto" Width="700" Margin="0,4">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.5*"/>
-                                <ColumnDefinition Width="2.5*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ImageSource}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
-                            <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
-                            <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Width="25" />
-                            <Button Grid.Column="4" Content="Order" Height="60"  FontSize="18" FontWeight="Bold" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
-                        </Grid>
+
+                        <Border CornerRadius="10" Height="150" Width="740" Margin="0,4" Background="White">
+
+                            <Grid Height="auto" Width="700">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="3.5*"/>
+                                    <ColumnDefinition Width="0.7*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="150"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.Resources>
+
+                                    <Style TargetType="TextBlock">
+
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+
+                                        <Setter Property="FontWeight" Value="Bold"/>
+
+                                        <Setter Property="FontSize" Value="22"/>
+
+                                    </Style>
+
+                                </Grid.Resources>
+
+                                <Border BorderBrush="#0A0A0A" BorderThickness="2" CornerRadius="10" Height="140">
+
+                                    <Border.Background>
+
+                                        <VisualBrush Stretch="UniformToFill">
+
+                                            <VisualBrush.Visual>
+
+                                                <Image Source="{Binding ImageSource}" ToolTip="{Binding Name}"/>
+
+                                            </VisualBrush.Visual>
+
+                                        </VisualBrush>
+
+                                    </Border.Background>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+
+                                <TextBlock Grid.Column="2" Text="{Binding Price}"/>
+
+                                <TextBlock Grid.Column="3" Text="1" Width="25"/>
+
+                                <Button Grid.Column="4" Content="Order" Height="50" Width="80" Padding="0,0,0,4" FontSize="23" FontWeight="Bold" Background="#F46315" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource TableStyle}"/>
+
+                            </Grid>
+                        </Border>
+
                     </DataTemplate>
+
                 </ItemsControl.ItemTemplate>
+
             </ItemsControl>
+
         </ScrollViewer>
 
         <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Grid.Row="2">
+
             <ItemsControl ItemsSource="{Binding OrderedFood}" >
+
                 <ItemsControl.ItemsPanel>
+
                     <ItemsPanelTemplate>
+
                         <StackPanel Orientation="Horizontal"/>
+
                     </ItemsPanelTemplate>
+
                 </ItemsControl.ItemsPanel>
+
                 <ItemsControl.ItemTemplate>
+
                     <DataTemplate>
+
                         <Grid Margin="4,5,4,0">
+
                             <Image Source="{Binding ImageSource}" Width="100" Height="100" Margin="5,15,5,2"/>
+
                             <TextBlock Text="{Binding Name}" VerticalAlignment="Top" FontWeight="Bold"/>
+
                             <Button Width="14" Height="14" Content="x" HorizontalAlignment="Right"  VerticalAlignment="Top" Padding="-1" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
+
                         </Grid>
+
                     </DataTemplate>
+
                 </ItemsControl.ItemTemplate>
+
             </ItemsControl>
+
         </ScrollViewer>
+
     </Grid>
+
 </UserControl>

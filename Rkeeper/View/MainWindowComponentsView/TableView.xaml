@@ -75,7 +75,7 @@
                 <RowDefinition/>
 
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Background="#0A0A0A">
 
                 <Grid.ColumnDefinitions>
 
@@ -85,11 +85,13 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="{Binding Username}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock Grid.Column="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
-                <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock Grid.Column="0" Text="{Binding Username}" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
-                <Button Grid.Column="2" Margin="20,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+
+                <Button Grid.Column="2" Margin="20,4" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="#F46315" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" Style="{StaticResource TableStyle}"/>
 
             </Grid>
 

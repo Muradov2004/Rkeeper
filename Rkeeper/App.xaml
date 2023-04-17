@@ -12,7 +12,7 @@
 
                 <ResourceDictionary Source="Resources/ApplicationResources.xaml"/>
 
-                <ResourceDictionary Source="Styles/TableViewStyles/TableStyle.xaml"/>
+                <ResourceDictionary Source="Styles/UserViewStyles/TableStyle.xaml"/>
 
                 <ResourceDictionary Source="Styles/LoginRegisterStyles/TxtBoxStyle.xaml"/>
 

@@ -6,63 +6,149 @@
              xmlns:local="clr-namespace:Rkeeper.View.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
+
         <Grid.ColumnDefinitions>
+
             <ColumnDefinition/>
             <ColumnDefinition Width="1.5*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Add Food To Menu" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
-            <TextBox Name="FoodName" Grid.Row="1" Style="{StaticResource txtStyle}" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Name="ImageLink" Grid.Row="2" Style="{StaticResource txtStyle}" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Name="Price" Grid.Row="3" Style="{StaticResource txtStyle}" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Name="Count" Grid.Row="4" Style="{StaticResource txtStyle}" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Grid Grid.Row="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="A d d" HorizontalAlignment="Right" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding AddCommand}"/>
-                <Button Grid.Column="1" Content="B a c k" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding BackCommand}"/>
-            </Grid>
-        </Grid>
-        <Grid Grid.Column="1">
-            <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding MenuFood}" >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="auto" Width="440" Margin="0,3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1.5*"/>
-                                    <ColumnDefinition Width="2.5*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="1.3*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding ImageSource}"/>
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Grid.Column="3" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Width="25" />
-                                <Button Grid.Column="4" Content="Remove" Height="30"  FontSize="14" FontWeight="Bold" Command="{Binding DataContext.RemoveMenuCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
 
-                            </Grid>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="White" CornerRadius="10" Margin="5,8" MaxHeight="470" MaxWidth="340">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Add Food To Menu" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
+
+                <TextBox Name="FoodName" Grid.Row="1" Style="{StaticResource txtStyle}" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox Name="ImageLink" Grid.Row="2" Style="{StaticResource txtStyle}" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox Name="Price" Grid.Row="3" Style="{StaticResource txtStyle}" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox Name="Count" Grid.Row="4" Style="{StaticResource txtStyle}" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Grid Grid.Row="5">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Content="A d d" HorizontalAlignment="Right" Background="#F46315" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding AddCommand}" Style="{StaticResource TableStyle}"/>
+
+                    <Button Grid.Column="1" Content="B a c k" HorizontalAlignment="Left" Background="#F46315" Margin="10,0,0,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding BackCommand}" Style="{StaticResource TableStyle}"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+        <Grid Grid.Column="1">
+
+            <ScrollViewer Grid.Row="1">
+
+                <ItemsControl ItemsSource="{Binding MenuFood}" HorizontalAlignment="Center">
+
+                    <ItemsControl.ItemsPanel>
+
+                        <ItemsPanelTemplate>
+
+                            <StackPanel/>
+
+                        </ItemsPanelTemplate>
+
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <Border CornerRadius="10" Height="auto" Width="450" Margin="0,3" Background="White">
+
+                                <Grid Height="auto" Width="440">
+
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="110"/>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.Resources>
+
+                                        <Style TargetType="TextBlock">
+
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+
+                                            <Setter Property="FontWeight" Value="Bold"/>
+
+                                            <Setter Property="FontSize" Value="14"/>
+
+                                        </Style>
+
+                                    </Grid.Resources>
+
+                                    <Border BorderBrush="#0A0A0A" BorderThickness="1" CornerRadius="10" Height="90" ToolTip="{Binding Name}">
+
+                                        <Border.Background>
+
+                                            <VisualBrush Stretch="UniformToFill">
+
+                                                <VisualBrush.Visual>
+
+                                                    <Image Source="{Binding ImageSource}"/>
+
+                                                </VisualBrush.Visual>
+
+                                            </VisualBrush>
+
+                                        </Border.Background>
+
+                                    </Border>
+
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+
+                                    <TextBlock Grid.Column="2" Text="{Binding Price}"/>
+
+                                    <TextBlock Grid.Column="3" Text="1" Width="25"/>
+
+                                    <Button Grid.Column="4" Content="Remove" Height="30" Width="70" FontSize="15" Padding="0,0,0,5" Background="#F46315" Command="{Binding DataContext.RemoveMenuCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource TableStyle}"/>
+
+                                </Grid>
+
+                            </Border>
+
                         </DataTemplate>
+
                     </ItemsControl.ItemTemplate>
+
                 </ItemsControl>
+
             </ScrollViewer>
+
         </Grid>
+
     </Grid>
+
 </UserControl>

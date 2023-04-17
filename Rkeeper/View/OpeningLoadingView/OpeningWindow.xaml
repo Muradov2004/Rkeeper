@@ -9,7 +9,9 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Icon="../../Assets/IconImage/rkeeper.ico"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -21,11 +23,12 @@
 
         <Image Source="../../Assets/IconImage/rkeeper.ico"/>
 
-        <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="LightSalmon"/>
+        <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#F46315"/>
 
-        <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="Gray"/>
+        <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="#474D4E"/>
 
-        <ProgressBar Grid.Row="1" Margin="10" Height="25" Value="0" IsIndeterminate="True" Foreground="LightSalmon"/>
+        <ProgressBar Grid.Row="1" Margin="10" Height="25" Value="0" IsIndeterminate="True" Foreground="#F46315"/>
 
     </Grid>
+
 </Window>

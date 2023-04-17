@@ -7,45 +7,79 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+
         <Grid.RowDefinitions>
+
             <RowDefinition/>
             <RowDefinition Height="350"/>
             <RowDefinition/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+
             <ColumnDefinition/>
             <ColumnDefinition Width="550"/>
             <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
+
         <Grid Grid.Row="1" Grid.Column="1">
+
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+
                 <RowDefinition/>
                 <RowDefinition/>
+
             </Grid.RowDefinitions>
+
             <Grid.Resources>
+
                 <Style TargetType="Button">
+
                     <Setter Property="Margin" Value="15,20"/>
+
                     <Setter Property="FontSize" Value="28"/>
+
                     <Setter Property="FontWeight" Value="Black"/>
+
                 </Style>
+
             </Grid.Resources>
-            <Button Command="{Binding AddFoodToMenuCommand}">
+
+            <Button Command="{Binding AddFoodToMenuCommand}" Background="#F46315" Style="{StaticResource TableStyle}">
+
                 <Button.Content>
+
                     <TextBlock TextWrapping="Wrap" Text="A d d  F o o d       t o  M e n u" TextAlignment="Center"/>
+
                 </Button.Content>
+
             </Button>
-            <Button Grid.Row="1" Content="T a b l e s" Command="{Binding TableCommand}"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="L o g  F i l e" Command="{Binding LogFileCommand}"/>
-            <Button Grid.Column="1" Grid.Row="0" Command="{Binding DownloadPDFCommand}">
+
+            <Button Grid.Row="1" Content="T a b l e s" Command="{Binding TableCommand}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+
+            <Button Grid.Column="1" Grid.Row="1" Content="L o g  F i l e" Command="{Binding LogFileCommand}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+
+            <Button Grid.Column="1" Grid.Row="0" Command="{Binding DownloadPDFCommand}" Background="#F46315" Style="{StaticResource TableStyle}">
+
                 <Button.Content>
+
                     <TextBlock TextWrapping="Wrap" Text="D o w n l o a d        H i s t o r y  P D F" TextAlignment="Center"/>
+
                 </Button.Content>
+
             </Button>
+
         </Grid>
-        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,6,10" Content="L o g o u t" FontSize="15" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+
+        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,6,10" Padding="0" Content="L o g o u t" FontSize="18" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+
     </Grid>
+
 </UserControl>

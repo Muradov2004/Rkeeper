@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Gifs\rkeeper.gif" />
     <None Remove="Assets\LoginRegisterImages\LoginImage.png" />
     <None Remove="Assets\LoginRegisterImages\RegisterImage.png" />
     <None Remove="Assets\MenuImages\BuffaloWings.jpg" />
@@ -32,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Gifs\rkeeper.gif" />
     <Resource Include="Assets\IconImage\rkeeper.ico" />
     <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
     <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />

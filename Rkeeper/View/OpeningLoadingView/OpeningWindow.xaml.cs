@@ -1,6 +1,7 @@
 ﻿using Rkeeper.Stores;
 using Rkeeper.View.LoginRegisterView;
 using Rkeeper.ViewModel;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Rkeeper.View.OpeningLoadingView;
@@ -13,22 +14,20 @@ public partial class OpeningWindow : Window
 
     public OpeningWindow()
     {
-
         InitializeComponent();
+    }
 
-        System.Timers.Timer timer = new()
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+        Task.Run(() =>
         {
-            Interval = 3000
-        };
-
-        timer.Elapsed += (sender, args) =>
-        {
-
-            timer.Stop();
-
-            Application.Current.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(async () =>
             {
-
+                for (int i = 0; i < 100; i++)
+                {
+                    LoadBar.Value++;
+                    await Task.Delay(15);
+                }
                 NavigationStore _navigationStore = new();
 
                 _navigationStore.CurrentVM = new LoginVM(_navigationStore);
@@ -40,10 +39,8 @@ public partial class OpeningWindow : Window
                 Close();
 
             });
-        };
 
-        timer.Start();
+        });
 
     }
-
 }

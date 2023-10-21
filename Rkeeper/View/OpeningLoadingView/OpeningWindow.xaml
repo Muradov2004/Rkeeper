@@ -5,29 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rkeeper.View.OpeningLoadingView"
         mc:Ignorable="d"
-        Title="OpeningWindow" Height="230" Width="400"
+        Title="OpeningWindow" Height="280" Width="440"
         WindowStyle="None"
         ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Loaded="Window_Loaded"
         Icon="../../Assets/IconImage/rkeeper.ico"
         WindowStartupLocation="CenterScreen">
+    
+    <Border Background="White" CornerRadius="7">
+    
+        <Grid>
 
-    <Grid>
+            <Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
 
-            <RowDefinition/>
-            <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        </Grid.RowDefinitions>
+            <Image Source="../../Assets/IconImage/rkeeper.ico"/>
 
-        <Image Source="../../Assets/IconImage/rkeeper.ico"/>
+            <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#F46315"/>
 
-        <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#F46315"/>
+            <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="#474D4E"/>
 
-        <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="#474D4E"/>
+            <ProgressBar Name="LoadBar" Grid.Row="1" Margin="10" Height="22" Background="#FC9A65" Foreground="#F46315">
+                <ProgressBar.Template>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Border BorderBrush="AliceBlue" BorderThickness="1" CornerRadius="8" Background="{TemplateBinding Background}">
+                            <Grid x:Name="PART_Track">
+                                <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left" Fill="{TemplateBinding Foreground}" RadiusX="8" RadiusY="8"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </ProgressBar.Template>
+            </ProgressBar>
 
-        <ProgressBar Grid.Row="1" Margin="10" Height="25" Value="0" IsIndeterminate="True" Foreground="#F46315"/>
-
-    </Grid>
+        </Grid>
+    </Border>
 
 </Window>

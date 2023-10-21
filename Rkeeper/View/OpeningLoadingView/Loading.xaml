@@ -28,7 +28,7 @@
 
             <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Rkeeper;component/Assets/Gifs/rkeeper.gif"/>
 
-            <TextBlock Grid.Row="1" x:Name="folderNameText" FontSize="16" FontWeight="Bold" Margin="10,5" VerticalAlignment="Top" TextAlignment="Center" Foreground="DimGray"/>
+            <TextBlock Grid.Row="1" x:Name="folderNameText" FontSize="16" FontWeight="Bold" Margin="10,15" VerticalAlignment="Top" TextAlignment="Center" Foreground="DimGray"/>
 
             <ProgressBar Grid.Row="1" Name="LoadingBar" VerticalAlignment="Bottom" Height="10" Margin="10" Background="#d5d5d5" Foreground="#0265dc" >
                 <ProgressBar.Template>

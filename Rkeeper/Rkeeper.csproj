@@ -28,12 +28,16 @@
 
   <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Gifs\rkeeper.gif" />
+    <Resource Include="Assets\Gifs\rkeeper.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\IconImage\rkeeper.ico" />
     <Resource Include="Assets\LoginRegisterImages\LoginImage.png" />
     <Resource Include="Assets\LoginRegisterImages\RegisterImage.png" />

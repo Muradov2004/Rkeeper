@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Controls;
+using System.Threading.Tasks;
+using System;
 
 namespace Rkeeper.View.OpeningLoadingView;
 
@@ -102,27 +104,34 @@ public partial class Loding : Window
 
     public Loding()
     {
-
         InitializeComponent();
-
-
     }
 
     public void Load()
     {
-
-        LoadingBar.Maximum = Folders.Count;
-
-        foreach (var item in Folders)
+        Task.Run(async () =>
         {
+            Dispatcher.Invoke(() =>
+            {
+                LoadingBar.Maximum = Folders!.Count;
+            });
 
-            folderNameText.Text = item;
-            LoadingBar.Value++;
-            Thread.Sleep(100);
+            foreach (var item in Folders!)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    folderNameText.Text = item;
+                    LoadingBar.Value++;
+                });
+                await Task.Delay(100);
 
-        }
-
-        Close();
-
+            }
+            Dispatcher.Invoke(() =>
+            {
+                Close();
+            });
+        });
     }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e) => Load();
 }

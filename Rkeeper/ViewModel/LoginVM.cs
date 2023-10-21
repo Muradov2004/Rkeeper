@@ -84,7 +84,7 @@ internal class LoginVM : BaseVM
                     {
 
                         File.AppendAllText(path, $"Log : {UsernameString} logged in Time : {DateTime.Now.ToString("G")}\n");
-                        _navigationStore.CurrentVM = new TableVM(_navigationStore) { Username = UsernameString };
+                        _navigationStore.CurrentVM = new TableVM(_navigationStore) { Username = UsernameString! };
                         MainView mainView = new MainView()
                         {
                             DataContext = new MainVM(_navigationStore)

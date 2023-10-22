@@ -14,7 +14,7 @@
         Icon="../../Assets/IconImage/rkeeper.ico"
         WindowStartupLocation="CenterScreen">
     
-    <Border Background="White" CornerRadius="7">
+    <Border Background="{DynamicResource BackColor}" CornerRadius="7">
     
         <Grid>
 
@@ -27,14 +27,14 @@
 
             <Image Source="../../Assets/IconImage/rkeeper.ico"/>
 
-            <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#F46315"/>
+            <TextBlock Text="RKeeper" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource HighColor}"/>
 
-            <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="#474D4E"/>
+            <TextBlock Text="Preparing Project" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Bold" Margin="10,0" Foreground="{DynamicResource UpperColor}"/>
 
-            <ProgressBar Name="LoadBar" Grid.Row="1" Margin="10" Height="22" Background="#FC9A65" Foreground="#F46315">
+            <ProgressBar Name="LoadBar" Grid.Row="1" Margin="10" Height="18" Background="{DynamicResource BehindColor}" Foreground="{DynamicResource MainColor}">
                 <ProgressBar.Template>
                     <ControlTemplate TargetType="ProgressBar">
-                        <Border BorderBrush="AliceBlue" BorderThickness="1" CornerRadius="8" Background="{TemplateBinding Background}">
+                        <Border BorderBrush="{DynamicResource BackColor}" BorderThickness="1" CornerRadius="8" Background="{TemplateBinding Background}">
                             <Grid x:Name="PART_Track">
                                 <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left" Fill="{TemplateBinding Foreground}" RadiusX="8" RadiusY="8"/>
                             </Grid>

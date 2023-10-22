@@ -1,12 +1,11 @@
 ﻿using System.Windows;
 
-namespace Rkeeper.View
+namespace Rkeeper.View;
+
+/// <summary>
+/// Interaction logic for MainView.xaml
+/// </summary>
+public partial class MainView : Window
 {
-    /// <summary>
-    /// Interaction logic for MainView.xaml
-    /// </summary>
-    public partial class MainView : Window
-    {
-        public MainView() => InitializeComponent();
-    }
+    public MainView() => InitializeComponent();
 }

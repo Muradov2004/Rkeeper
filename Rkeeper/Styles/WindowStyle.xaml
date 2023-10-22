@@ -14,7 +14,7 @@
         
         <Setter Property="MinHeight" Value="500"/>
 
-        <Setter Property="Background" Value="#F0E8E0"/>
+        <Setter Property="Background" Value="{DynamicResource BackColor}"/>
 
     </Style>
 

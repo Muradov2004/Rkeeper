@@ -5,30 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Rkeeper.ViewModel"
         xmlns:local="clr-namespace:Rkeeper.View.LoginRegisterView"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
 		ResizeMode="CanMinimize"
     	WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
 		Style="{StaticResource CommonWindowStyle}">
-    <!--WindowStyle="None"-->
-    <Grid>
 
-        <Grid.Resources>
+    <materialDesign:Card Background="{DynamicResource BackColor}">
+        <Grid>
 
-            <DataTemplate DataType="{x:Type viewModel:LoginVM}">
+            <Grid.Resources>
 
-                <local:LoginView/>
+                <DataTemplate DataType="{x:Type viewModel:LoginVM}">
 
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:RegisterVM}">
+                    <local:LoginView/>
 
-                <local:RegisterView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:RegisterVM}">
 
-            </DataTemplate>
+                    <local:RegisterView/>
 
-        </Grid.Resources>
+                </DataTemplate>
 
-        <ContentControl Content="{Binding CurrentVM}"/>
+            </Grid.Resources>
 
-    </Grid>
+            <ContentControl Content="{Binding CurrentVM}"/>
+
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="50" Height="50" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="40" Style="{StaticResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=WindowClose}" Click="Button_Click"/>
+
+
+        </Grid>
+    </materialDesign:Card>
 
 </Window>

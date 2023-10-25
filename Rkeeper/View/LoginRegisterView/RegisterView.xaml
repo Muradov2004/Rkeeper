@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.LoginRegisterView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800"
              Style="{StaticResource UserControlStyle}">
@@ -17,7 +18,7 @@
 
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="White">
+        <Grid Grid.Column="0" Background="{DynamicResource HighColor}">
             <Image Source="../../Assets/LoginRegisterImages/RegisterImage.png"/>
         </Grid>
 
@@ -33,11 +34,11 @@
 
             </Grid.RowDefinitions>
 
-            <TextBlock Text="REGISTER" Foreground="#484bf2" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
+            <TextBlock Text="REGISTER" Foreground="{DynamicResource HighColor}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
 
-            <TextBox x:Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtStyle}"/>
+            <TextBox x:Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
 
-            <TextBox x:Name="Password" Grid.Row="2" Text="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource pswdStyle}"/>
+            <PasswordBox x:Name="Password" Grid.Row="2" FontSize="20" materialDesign:PasswordBoxAssist.Password="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
 
             <Grid Grid.Row="3" Margin="0,20">
 
@@ -57,7 +58,7 @@
                 </Button>
 
             </Grid>
-            <Button Grid.Row="4" Background="#484bf2" Style="{StaticResource LoginRegisterBtnStyle}" Content="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+            <Button Grid.Row="4" Background="{DynamicResource HighColor}" Content="Register"  Width="170" Height="55" FontSize="30" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" VerticalContentAlignment="Top"/>
         </Grid>
 
     </Grid>

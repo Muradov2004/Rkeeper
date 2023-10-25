@@ -9,20 +9,20 @@
 		ResizeMode="CanMinimize"
     	WindowStartupLocation="CenterScreen"
 		Style="{StaticResource CommonWindowStyle}">
-    
+    <!--WindowStyle="None"-->
     <Grid>
-        
+
         <Grid.Resources>
-        
+
             <DataTemplate DataType="{x:Type viewModel:LoginVM}">
-            
+
                 <local:LoginView/>
-            
+
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:RegisterVM}">
-            
+
                 <local:RegisterView/>
-            
+
             </DataTemplate>
 
         </Grid.Resources>

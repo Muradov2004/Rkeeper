@@ -1,23 +1,24 @@
 ﻿<UserControl x:Class="Rkeeper.View.MainWindowComponentsView.TableView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Style="{StaticResource UserControlStyle}"
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="1100">
 
     <Grid>
 
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition/>
-            <ColumnDefinition  Width="2*"/>
+            <ColumnDefinition  Width="1.8*"/>
 
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="#474D4E">
+        <Grid Grid.Column="0" Background="{DynamicResource BehindColor}">
 
             <Grid.RowDefinitions>
 
@@ -26,7 +27,7 @@
 
             </Grid.RowDefinitions>
 
-            <Grid Margin="8,15,8,0" Background="#F0E8E0">
+            <Grid Margin="8,15,8,0" Background="{DynamicResource BackColor}">
 
                 <Grid.RowDefinitions>
 
@@ -45,7 +46,7 @@
 
                                 <GridView.Columns>
 
-                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="90"/>
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="auto"/>
                                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="auto"/>
                                     <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="auto"/>
 
@@ -59,11 +60,11 @@
 
                 </Grid>
 
-                <Button Grid.Row="1" Margin="15,0" FontSize="17" Height="30" Content="A d d  O r d e r" FontWeight="DemiBold" Background="#F46315" Padding="0" Command="{Binding AddOrderCommand}" Style="{StaticResource TableStyle}"/>
+                <Button Grid.Row="1" Margin="15,0" FontSize="17" Height="30" Content="A d d  O r d e r" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Padding="0" Command="{Binding AddOrderCommand}" />
 
             </Grid>
 
-            <Button Grid.Row="1" Margin="20,0" FontSize="35" Height="50" Content="B i l l" FontWeight="DemiBold" Background="#F46315" Command="{Binding BillCommand}" Style="{StaticResource TableStyle}"/>
+            <Button Grid.Row="1" Margin="20,0" Padding="-1" FontSize="35" Height="50" Content="B i l l" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Command="{Binding BillCommand}"/>
 
         </Grid>
 
@@ -75,23 +76,23 @@
                 <RowDefinition/>
 
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="#0A0A0A">
+            <Grid Grid.Row="0" Background="{DynamicResource MainColor}">
 
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="1*"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="110"/>
                     <ColumnDefinition/>
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+                <TextBlock Grid.Column="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0" TextWrapping="Wrap"/>
 
                 <TextBlock Grid.Column="0" Text="{Binding Username}" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
                 <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
-                <Button Grid.Column="2" Margin="20,4" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="#F46315" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" Style="{StaticResource TableStyle}"/>
+                <Button Grid.Column="2" Margin="20,4" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
 
             </Grid>
 
@@ -113,8 +114,8 @@
                         <DataTemplate>
 
                             <Grid Margin="0,20,0,0">
-
-                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table" Background="#F46315" Style="{StaticResource TableStyle}"/>
+                                
+                                <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table" Background="{DynamicResource HighColor}" Width="200" Height="200" FontSize="28" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
 
                             </Grid>
 

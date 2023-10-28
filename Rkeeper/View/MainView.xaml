@@ -9,6 +9,7 @@
         xmlns:adminView="clr-namespace:Rkeeper.View.Admin"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
+        Width="1100"
 		Style="{StaticResource CommonWindowStyle}">
     <Grid>
         <Grid.Resources>

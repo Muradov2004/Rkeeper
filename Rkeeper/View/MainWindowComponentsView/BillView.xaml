@@ -24,9 +24,9 @@
 
                     <GridView.Columns>
 
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="220"/>
-                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
-                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="100"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="300"/>
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="150"/>
+                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="150"/>
                     
                     </GridView.Columns>
 
@@ -45,9 +45,9 @@
 
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0"  Height="40" Width="200" HorizontalAlignment="Right" Margin="40,0" Content="C l o s e  T a b l e" FontSize="22" FontWeight="Bold" Padding="0" Background="#F46315" Command="{Binding CloseTableCommand}" Style="{StaticResource TableStyle}"/>
+            <Button Grid.Column="0"  Height="40" Width="200" HorizontalAlignment="Right" Margin="40,0" Content="C l o s e  T a b l e" FontSize="22" FontWeight="Bold" Padding="0" Background="{DynamicResource MainColor}" Command="{Binding CloseTableCommand}"/>
 
-            <Button Grid.Column="1"  Height="40" Width="200" HorizontalAlignment="Left" Margin="40,0" Content="B a c k" FontSize="22" FontWeight="Bold" Padding="0" Background="#F46315" Command="{Binding BackCommand}" Style="{StaticResource TableStyle}"/>
+            <Button Grid.Column="1"  Height="40" Width="200" HorizontalAlignment="Left" Margin="40,0" Content="B a c k" FontSize="22" FontWeight="Bold" Padding="0" Background="{DynamicResource MainColor}" Command="{Binding BackCommand}"/>
 
         </Grid>
 

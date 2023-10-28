@@ -1,12 +1,14 @@
 ﻿<UserControl x:Class="Rkeeper.View.MainWindowComponentsView.OrderFoodView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.MainWindowComponentsView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Style="{StaticResource UserControlStyle}"
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800"
+             Background="{DynamicResource BehindColor}">
 
     <Grid>
 
@@ -20,8 +22,8 @@
 
         <Rectangle>
 
-            <Rectangle.Fill>
-                <SolidColorBrush Color="#0A0A0A"/>
+            <Rectangle.Fill >
+                <DynamicResource ResourceKey="MainColor" />
             </Rectangle.Fill>
 
         </Rectangle>
@@ -62,7 +64,7 @@
 
             <TextBlock Grid.Column="3" Text="Count"/>
 
-            <Button Grid.Column="4" HorizontalAlignment="Right" Content="Done" FontSize="18" Height="28" Width="60" Margin="0" Padding="0,0,0,4" Background="#F46315" FontWeight="DemiBold" Command="{Binding DoneCommand}" Style="{StaticResource TableStyle}"/>
+            <Button Grid.Column="4" HorizontalAlignment="Right" Content="Done" FontSize="18" Height="29" Width="60" Margin="0" Padding="0,0,0,4" Background="{DynamicResource HighColor}" FontWeight="DemiBold" Command="{Binding DoneCommand}"/>
 
         </Grid>
 
@@ -138,7 +140,7 @@
 
                                 <TextBlock Grid.Column="3" Text="1" Width="25"/>
 
-                                <Button Grid.Column="4" Content="Order" Height="50" Width="80" Padding="0,0,0,4" FontSize="23" FontWeight="Bold" Background="#F46315" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource TableStyle}"/>
+                                <Button Grid.Column="4" Content="Order" Height="50" Width="80" Padding="0,0,0,4" FontSize="23" FontWeight="Bold" Background="{DynamicResource MainColor}" Command="{Binding DataContext.AddListCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
 
                             </Grid>
 

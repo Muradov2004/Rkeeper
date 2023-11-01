@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.Admin"
-             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
@@ -52,25 +53,31 @@
 
             </Grid.Resources>
 
-            <Button Command="{Binding AddFoodToMenuCommand}" Background="#F46315" Style="{StaticResource TableStyle}">
+            <Button Command="{Binding AddFoodToMenuCommand}" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}" FontSize="40">
 
                 <Button.Content>
 
-                    <TextBlock TextWrapping="Wrap" Text="A d d  F o o d       t o  M e n u" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Text="Add Food to Menu" TextAlignment="Center"/>
 
                 </Button.Content>
 
             </Button>
 
-            <Button Grid.Row="1" Content="T a b l e s" Command="{Binding TableCommand}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+            <Button Grid.Row="1" Command="{Binding TableCommand}" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}">
+                <Button.Content>
 
-            <Button Grid.Column="1" Grid.Row="1" Content="L o g  F i l e" Command="{Binding LogFileCommand}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+                    <TextBlock TextWrapping="Wrap" Text="Change Theme" TextAlignment="Center" FontSize="40"/>
 
-            <Button Grid.Column="1" Grid.Row="0" Command="{Binding DownloadPDFCommand}" Background="#F46315" Style="{StaticResource TableStyle}">
+                </Button.Content>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="1" Content="Log File" Command="{Binding LogFileCommand}" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}" FontSize="40"/>
+
+            <Button Grid.Column="1" Grid.Row="0" Command="{Binding DownloadPDFCommand}" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}">
 
                 <Button.Content>
 
-                    <TextBlock TextWrapping="Wrap" Text="D o w n l o a d        H i s t o r y  P D F" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Text="Download History PDF" TextAlignment="Center" FontSize="40"/>
 
                 </Button.Content>
 
@@ -78,7 +85,7 @@
 
         </Grid>
 
-        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,6,10" Padding="0" Content="L o g o u t" FontSize="18" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" Background="#F46315" Style="{StaticResource TableStyle}"/>
+        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="40" Width="110" Margin="0,0,6,10" Padding="0" Content="Logout" FontSize="24" FontWeight="Bold" Command="{Binding LogoutCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}"/>
 
     </Grid>
 

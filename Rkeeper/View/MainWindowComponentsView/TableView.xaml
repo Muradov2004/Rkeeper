@@ -92,7 +92,7 @@
 
                 <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
-                <Button Grid.Column="2" Margin="20,4" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
+                <Button Grid.Column="2" HorizontalAlignment="Right" Margin="20,0" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Mode=OneTime}"/>
 
             </Grid>
 

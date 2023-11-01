@@ -9,7 +9,6 @@ namespace Rkeeper.Model;
 
 class Food
 {
-
     public string? Name { get; set; }
 
     public string? ImageSource { get; set; }

@@ -33,13 +33,13 @@
 
                 <TextBlock Text="Add Food To Menu" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
 
-                <TextBox Name="FoodName" Grid.Row="1" Style="{StaticResource txtStyle}" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="FoodName" Grid.Row="1" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="ImageLink" Grid.Row="2" Style="{StaticResource txtStyle}" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="ImageLink" Grid.Row="2" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="Price" Grid.Row="3" Style="{StaticResource txtStyle}" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="Price" Grid.Row="3" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="Count" Grid.Row="4" Style="{StaticResource txtStyle}" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="Count" Grid.Row="4" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Grid Grid.Row="5">
 

@@ -32,11 +32,11 @@
 
                 <TextBlock Text="Add Table" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
 
-                <TextBox Name="TableName" Grid.Row="1" Style="{StaticResource txtStyle}" Text="{Binding TableName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="TableName" Grid.Row="1" Text="{Binding TableName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <ComboBox Grid.Row="2" Width="240" Height="40" SelectedItem="{Binding SelectedShape}" ItemsSource="{Binding tableShapes}"/>
 
-                <TextBox Name="NumberofChairs" Grid.Row="3" Style="{StaticResource txtStyle}" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="NumberofChairs" Grid.Row="3" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Grid Grid.Row="5">
 

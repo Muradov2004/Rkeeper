@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.Admin"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{StaticResource UserControlStyle}">
 
     <Grid>
 
@@ -33,13 +35,13 @@
 
                 <TextBlock Text="Add Food To Menu" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
 
-                <TextBox Name="FoodName" Grid.Row="1" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="FoodName" Margin="20,12" FontSize="20" md:HintAssist.Hint="Food Name" md:HintAssist.IsFloating="True" Grid.Row="1" Text="{Binding FoodName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="ImageLink" Grid.Row="2" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="ImageLink" Margin="20,12" FontSize="20" md:HintAssist.Hint="Image Link" md:HintAssist.IsFloating="True" Grid.Row="2" Text="{Binding ImageLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="Price" Grid.Row="3" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="Price" Margin="20,12" FontSize="20" md:HintAssist.Hint="Price" md:HintAssist.IsFloating="True" Grid.Row="3" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBox Name="Count" Grid.Row="4" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="Count" Margin="20,12" FontSize="20" md:HintAssist.Hint="Count" md:HintAssist.IsFloating="True" Grid.Row="4" Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Grid Grid.Row="5">
 
@@ -50,9 +52,9 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" Content="A d d" HorizontalAlignment="Right" Background="#F46315" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding AddCommand}" Style="{StaticResource TableStyle}"/>
+                    <Button Grid.Column="0" Content="A d d" HorizontalAlignment="Right" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding AddCommand}"/>
 
-                    <Button Grid.Column="1" Content="B a c k" HorizontalAlignment="Left" Background="#F46315" Margin="10,0,0,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding BackCommand}" Style="{StaticResource TableStyle}"/>
+                    <Button Grid.Column="1" Content="B a c k" HorizontalAlignment="Left" Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}" Margin="10,0,0,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Command="{Binding BackCommand}"/>
 
                 </Grid>
 
@@ -133,7 +135,7 @@
 
                                     <TextBlock Grid.Column="3" Text="1" Width="25"/>
 
-                                    <Button Grid.Column="4" Content="Remove" Height="30" Width="70" FontSize="15" Padding="0,0,0,5" Background="#F46315" Command="{Binding DataContext.RemoveMenuCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" Style="{StaticResource TableStyle}"/>
+                                    <Button Grid.Column="4" Content="Remove" Height="30" Width="70" FontSize="15" Padding="0,0,0,5"  Background="{DynamicResource MainColor}" Foreground="{DynamicResource BackColor}" Command="{Binding DataContext.RemoveMenuCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}"/>
 
                                 </Grid>
 

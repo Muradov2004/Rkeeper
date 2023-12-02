@@ -37,13 +37,13 @@ class BillVM : BaseVM
         tableCollection.Tables?.FirstOrDefault(t => t.Name == TableName)?.OrderedFood.Clear();
         tableCollection.TablesToJson();
 
-        _navigation.CurrentVM = new TableVM(_navigation) { Username = username };
+        _navigation.CurrentVM = new TableVM(_navigation) { Username = username! };
 
     }
 
     private void ExecuteBackCommand(object? obj)
     {
-        _navigation.CurrentVM = new TableVM(_navigation) { Username = username };
+        _navigation.CurrentVM = new TableVM(_navigation) { Username = username! };
     }
 
 }

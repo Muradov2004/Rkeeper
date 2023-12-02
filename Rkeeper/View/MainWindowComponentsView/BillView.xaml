@@ -16,7 +16,7 @@
 
         </Grid.RowDefinitions>
 
-        <ListView ItemsSource="{Binding OrderedFood}" FontSize="20" SelectionMode="Single" HorizontalAlignment="Center">
+        <ListView ItemsSource="{Binding OrderedFood}" FontSize="20" SelectionMode="Single" HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}">
 
             <ListView.View>
 

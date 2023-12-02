@@ -123,7 +123,7 @@ public partial class Loding : Window
                     folderNameText.Text = item;
                     LoadingBar.Value++;
                 });
-                await Task.Delay(100);
+                await Task.Delay(20);
 
             }
             Dispatcher.Invoke(() =>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Rkeeper.View.Admin"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -16,7 +17,7 @@
 
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" Background="White" CornerRadius="10" Margin="5,8" MaxHeight="470" MaxWidth="340">
+        <Border Grid.Column="0" Background="White" CornerRadius="10" Margin="5,8" MaxHeight="300" MaxWidth="340">
 
             <Grid>
 
@@ -24,71 +25,108 @@
 
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1.2*"/>
 
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Add Table" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="24" FontWeight="Black"/>
+                <TextBlock Text="Change Theme" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="30" FontWeight="Black"/>
 
-                <TextBox Name="TableName" Grid.Row="1" Text="{Binding TableName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Grid.Row="1" Width="240" Height="40" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" ItemsSource="{Binding TableThemes}"/>
 
-                <ComboBox Grid.Row="2" Width="240" Height="40" SelectedItem="{Binding SelectedShape}" ItemsSource="{Binding tableShapes}"/>
 
-                <TextBox Name="NumberofChairs" Grid.Row="3" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Row="2" Content="O k" HorizontalAlignment="Center" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Padding="0,0,0,4" Background="{DynamicResource MainColor}" Command="{Binding OkCommand}"/>
 
-                <Grid Grid.Row="5">
-
-                    <Grid.ColumnDefinitions>
-
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-
-                    </Grid.ColumnDefinitions>
-
-                    <Button Grid.Column="0" Content="A d d" HorizontalAlignment="Right" Margin="0,0,10,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Padding="0,0,0,4" Background="#F46315" Command="{Binding AddCommand}" Style="{StaticResource TableStyle}"/>
-
-                    <Button Grid.Column="1" Content="B a c k" HorizontalAlignment="Left" Margin="10,0,0,0" Height="40" Width="130" FontSize="24" FontWeight="Bold" Padding="0,0,0,4" Background="#F46315" Command="{Binding BackCommand}" Style="{StaticResource TableStyle}"/>
-
-                </Grid>
 
             </Grid>
 
         </Border>
 
-        <ScrollViewer Grid.Column="1">
+        <Border Grid.Column="1" CornerRadius="10" Margin="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition  Width="1.8*"/>
+                </Grid.ColumnDefinitions>
 
-            <ItemsControl ItemsSource="{Binding TableCollection.Tables}" HorizontalAlignment="Center">
-
-                <ItemsControl.ItemsPanel>
-
-                    <ItemsPanelTemplate>
-
-                        <WrapPanel/>
-
-                    </ItemsPanelTemplate>
-
-                </ItemsControl.ItemsPanel>
-
-                <ItemsControl.ItemTemplate>
-
-                    <DataTemplate>
-
-                        <Grid>
-
-                            <Button Content="{Binding Name}" Background="#F46315" Style="{StaticResource TableStyle}"/>
-
+                <Grid Grid.Column="0" Background="{DynamicResource BehindColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Margin="8,15,8,0" Background="{DynamicResource BackColor}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="OrderGrid" >
+                            <ListView FontSize="15" SelectionMode="Single">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridView.Columns>
+                                            <GridViewColumn Header="Name" Width="auto"/>
+                                            <GridViewColumn Header="Price" Width="auto"/>
+                                            <GridViewColumn Header="Count" Width="auto"/>
+                                        </GridView.Columns>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </Grid>
 
-                    </DataTemplate>
+                        <Button Grid.Row="1" Margin="15,0" FontSize="17" Height="30" Content="A d d  O r d e r" FontWeight="DemiBold" Background="{DynamicResource UpperColor}" Padding="0"/>
 
-                </ItemsControl.ItemTemplate>
+                    </Grid>
 
-            </ItemsControl>
+                    <Button Grid.Row="1" Margin="20,0" Padding="-1" FontSize="35" Height="50" Content="B i l l" FontWeight="DemiBold" Background="{DynamicResource UpperColor}"/>
 
-        </ScrollViewer>
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{DynamicResource MainColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0" TextWrapping="Wrap"/>
+                        <TextBlock Grid.Column="0" Text="user" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+                        <TextBlock Grid.Column="1" Text="00:00:00" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" Margin="20,0" Height="30" Width="120" Padding="0,0,0,4" Content="Logout" FontSize="18" FontWeight="DemiBold" Background="{DynamicResource UpperColor}"/>
+                    </Grid>
+                    
+                    <ScrollViewer Grid.Row="1">
+                        <WrapPanel HorizontalAlignment="Center">
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table1" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table2" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table3" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table4" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table5" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                            <Grid Margin="0,20,0,0">
+                                <Button Content="Table6" ToolTip="Table" Background="{DynamicResource HighColor}" Width="100" Height="100" FontSize="18" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
+                            </Grid>
+                        </WrapPanel>
+                    </ScrollViewer>
+
+                </Grid>
+
+            </Grid>
+        </Border>
 
     </Grid>
+
 
 </UserControl>

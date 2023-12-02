@@ -36,9 +36,9 @@
 
             <TextBlock Text="REGISTER" Foreground="{DynamicResource HighColor}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50"/>
 
-            <TextBox x:Name="Username" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
+            <TextBox x:Name="Username" Foreground="{DynamicResource TextColor}" Grid.Row="1" Text="{Binding UsernameString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
 
-            <PasswordBox x:Name="Password" Grid.Row="2" FontSize="20" materialDesign:PasswordBoxAssist.Password="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
+            <PasswordBox x:Name="Password" Foreground="{DynamicResource TextColor}" Grid.Row="2" FontSize="20" materialDesign:PasswordBoxAssist.Password="{Binding PasswordString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True" Margin="20 12" materialDesign:HintAssist.Foreground="{DynamicResource HighColor}"/>
 
             <Grid Grid.Row="3" Margin="0,20">
 
@@ -49,7 +49,7 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="Have an account?" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
+                <TextBlock Grid.Column="0" Foreground="{DynamicResource TextColor}" Text="Have an account?" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
 
                 <Button Name="AdditionalLoginBtn" Grid.Column="1" Style="{StaticResource AdditionalBtnStyle}" Command="{Binding NavigateLoginCommand}">
 

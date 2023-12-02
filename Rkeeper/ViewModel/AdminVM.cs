@@ -1,5 +1,5 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using Rkeeper.Stores;
 using Rkeeper.View.LoginRegisterView;
 using Rkeeper.ViewModel.Command;
@@ -33,14 +33,36 @@ internal class AdminVM : BaseVM
     private void ExecuteDownloadPDFCommand(object? obj)
     {
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\History.pdf";
-        Document doc = new Document();
-        PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
         string txtPath = AppDomain.CurrentDomain.BaseDirectory[..^25] + @"Resources\History.txt";
         string history = File.ReadAllText(txtPath);
-        doc.Open();
-        Paragraph paragraph = new Paragraph(history);
-        doc.Add(paragraph);
-        doc.Close();
+
+        string[] lines = history.Split('\n');
+
+        int linesPerPage = 55;
+
+        PdfDocument document = new();
+        int lineIndex = 0;
+
+        while (lineIndex < lines.Length)
+        {
+            PdfPage page = document.AddPage();
+
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            XFont font = new("Arial", 12);
+            XBrush brush = XBrushes.Black;
+
+            double currentY = 20;
+
+            for (int i = 0; i < linesPerPage && lineIndex < lines.Length; i++)
+            {
+                gfx.DrawString(lines[lineIndex], font, brush, 10, currentY);
+                currentY += 15;
+                lineIndex++;
+            }
+        }
+
+        document.Save(path);
     }
 
     private void ExecuteAddFoodToMenuCommand(object? obj)
@@ -63,7 +85,7 @@ internal class AdminVM : BaseVM
 
         navigationStore.CurrentVM = new LoginVM(navigationStore);
 
-        LoginRegisterWindow loginRegisterWindow = new LoginRegisterWindow()
+        LoginRegisterWindow loginRegisterWindow = new()
         {
             DataContext = new MainVM(navigationStore)
         };

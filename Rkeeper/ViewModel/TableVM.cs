@@ -17,6 +17,20 @@ class TableVM : BaseVM
 
     public string Username { get; set; } = "";
 
+    private string? _selectedTable;
+    public string? SelectedTable
+    {
+        get { return _selectedTable; }
+        set
+        {
+            if (_selectedTable != value)
+            {
+                _selectedTable = value;
+                NotifyPropertyChanged(nameof(SelectedTable));
+            }
+        }
+    }
+
     private string? _time;
     public string? Time
     {
@@ -45,6 +59,7 @@ class TableVM : BaseVM
 
         _navigation = navigation;
         SetClock();
+        SelectedTable = "none";
         TableCommand = new RelayCommand(ExecuteTableCommand);
         BillCommand = new RelayCommand(ExecuteBillCommand, CanExecuteBillCommand);
         AddOrderCommand = new RelayCommand(ExecuteAddOrderCommand, CanExecuteAddOrderCommand);
@@ -73,11 +88,11 @@ class TableVM : BaseVM
     {
         DispatcherTimer timer = new DispatcherTimer();
         timer.Interval = TimeSpan.FromSeconds(1);
-        timer.Tick += timer_Tick;
+        timer.Tick += TimerTick!;
         timer.Start();
     }
 
-    private void timer_Tick(object sender, EventArgs e)
+    private void TimerTick(object sender, EventArgs e)
     {
         Time = DateTime.Now.ToString("T");
     }
@@ -88,7 +103,7 @@ class TableVM : BaseVM
     private void ExecuteAddOrderCommand(object? obj)
     {
         ObservableCollection<Food> SeperatedFood = new();
-        foreach (Food food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
+        foreach (Food food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName)!.OrderedFood)
         {
             int count = food.Count;
             for (int i = 0; i < count; i++)
@@ -106,7 +121,7 @@ class TableVM : BaseVM
     {
         ObservableCollection<Food> TotalOrderedFood = new();
         double totalprice = 0;
-        foreach (var item in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
+        foreach (var item in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName)!.OrderedFood)
         {
             TotalOrderedFood.Add(item);
             totalprice += item.Price * item.Count;
@@ -119,8 +134,9 @@ class TableVM : BaseVM
     {
         IsListActive = true;
         OrderedFood.Clear();
-        SelectedTableName = obj.ToString();
-        foreach (var food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName).OrderedFood)
+        SelectedTableName = obj!.ToString();
+        SelectedTable = SelectedTableName!;
+        foreach (var food in TableCollection.Tables.FirstOrDefault(t => t.Name == SelectedTableName)!.OrderedFood)
             OrderedFood.Add(food);
     }
 

@@ -12,28 +12,22 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-
             <ColumnDefinition/>
             <ColumnDefinition  Width="1.8*"/>
-
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="{DynamicResource BehindColor}">
 
             <Grid.RowDefinitions>
-
                 <RowDefinition Height="5*"/>
                 <RowDefinition/>
-
             </Grid.RowDefinitions>
 
             <Grid Margin="8,15,8,0" Background="{DynamicResource BackColor}">
 
                 <Grid.RowDefinitions>
-
                     <RowDefinition Height="8*"/>
                     <RowDefinition/>
-
                 </Grid.RowDefinitions>
 
                 <Grid Name="OrderGrid">
@@ -45,11 +39,9 @@
                             <GridView>
 
                                 <GridView.Columns>
-
                                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="auto"/>
                                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="auto"/>
                                     <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"  Width="auto"/>
-
                                 </GridView.Columns>
 
                             </GridView>
@@ -71,24 +63,30 @@
         <Grid Grid.Column="1">
 
             <Grid.RowDefinitions>
-
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
-
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="{DynamicResource MainColor}">
 
                 <Grid.ColumnDefinitions>
-
                     <ColumnDefinition/>
                     <ColumnDefinition Width="110"/>
                     <ColumnDefinition/>
-
                 </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
 
-                <TextBlock Grid.Column="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0" TextWrapping="Wrap"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Username : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0" TextWrapping="Wrap"/>
 
-                <TextBlock Grid.Column="0" Text="{Binding Username}" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+                    <TextBlock Grid.Row="0" Text="{Binding Username}" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+
+                    <TextBlock Grid.Row="1" Text="Selected : " Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0" TextWrapping="Wrap"/>
+
+                    <TextBlock Grid.Row="1" Text="{Binding SelectedTable,Mode=TwoWay}" Margin="110,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
+                </Grid>
 
                 <TextBlock Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold" Foreground="#F0E8E0"/>
 
@@ -114,7 +112,7 @@
                         <DataTemplate>
 
                             <Grid Margin="0,20,0,0">
-                                
+
                                 <Button Content="{Binding Name}" Command="{Binding DataContext.TableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Name}" ToolTip="Table" Background="{DynamicResource HighColor}" Width="200" Height="200" FontSize="28" Margin="30" materialDesign:ButtonAssist.CornerRadius="120"/>
 
                             </Grid>
